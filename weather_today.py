@@ -4,8 +4,15 @@ import csv
 
 global soup
 global source
+source1 = requests.get('https://weather.com/en-SG/weather/today/l/SNXX0006:1:SN?Goto=Redirected').text
 
-source = requests.get('https://weather.com/en-IN/weather/hourbyhour/l/bf01d09009561812f3f95abece23d16e123d8c08fd0b8ec7ffc9215c0154913c').text
+soup1 = BeautifulSoup(source1, 'lxml')
+links = soup1.find('a', class_='ListItem--listItem--1r7mf styles--listItem--2JY_Z Button--default--2yeqQ')
+links5 = str(links)
+links1 =links5.replace('<a class="ListItem--listItem--1r7mf styles--listItem--2JY_Z Button--default--2yeqQ" data-from-string="localsuiteNav_2_Hourly" href="', "")
+link3 = links1.replace('" target="_self"><span class="styles--liContent--1nCd7">Hourly</span></a>', "")
+finallink= "https://weather.com"+link3
+source = requests.get(finallink).text
 soup =  BeautifulSoup(source, features='lxml')
 
 class weatherHourly:
@@ -53,8 +60,4 @@ class weatherHourly:
                 break
             else:
                 continue
-
-weathernew = weatherHourly()
-weathernew.getdateofreport()
-weathernew.weather_atThisHour()
-weathernew.getHourlyweather()
+weatherHourly.getdateofreport(None)
