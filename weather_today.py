@@ -53,5 +53,3 @@ class weatherHourly:
             else:
                 continue
 
-                
-
