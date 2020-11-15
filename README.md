@@ -1,3 +1,2 @@
 # weather_Api
-weather_api project
-MAIN MODULE WILL BE LIVE IN LESS THAN 12 HOURS
+scraping weather.com. Will be made public after 1 week of completion and testing
