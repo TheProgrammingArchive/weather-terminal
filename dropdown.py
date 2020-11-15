@@ -11,3 +11,4 @@ for date_time in dropdown_article.find_all('h3', class_='DailyContent--daypartNa
 
 for temp_morning in dropdown_article.find_all('span', class_='DailyContent--temp--_8DL5'):
     print(temp_morning.text)
+    
