@@ -1,4 +1,4 @@
 # weather_Api
-Webscraper for weather.com. Files have been deleted due to project interchange. LICENSE VALIDITY REMAINS CONSTANT
-ETC: 2 weeks
-
+Webscraper for weather.com
+Project will be completed in 2 weeks
+APACHE LICENSE IS VALIDATED. DO NOT CHANGE LICENSE INFORMATION
