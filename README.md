@@ -6,6 +6,7 @@
 # REQUIREMENTS:
   Add py 3.8 to path and make sure by typing pip on cmd. Then download the project and run the app named main_reporter.
   *NOTE*: DO NOT TAMPER WITH THE MODULES. Read our license page to know what you can and cannot do with the project
+  __(EXE WILL BE RELEASED SOON ONCE THE PROJECT IS FINISHED)__
   
 # USAGE:
   After installing run the application and type !HELP in the chat (__Don't forget the !__).
