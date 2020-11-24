@@ -1,2 +1,3 @@
 # weather_Api
-scraping weather.com. Will be made public after 1 week of completion and testing
+Webscraper for weather.com. Files have been deleted due to project interchange. LICENSE VALIDITY REMAINS CONSTANT
+ETC: 2 weeks
