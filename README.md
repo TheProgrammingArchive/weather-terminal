@@ -9,7 +9,7 @@
   __(EXE WILL BE RELEASED SOON ONCE THE PROJECT IS FINISHED)__
   
 ## USAGE:
-  After installing run the application and type !HELP in the chat (__Don't forget the !__).
+  After installing run the application called application and type !HELP in the chat (__Don't forget the !__).
   This is a smart terminal. You can type a sentence like 'What's the weather today?' and It will show you the results (feature under development).
   
 ## ORGANISATION:
