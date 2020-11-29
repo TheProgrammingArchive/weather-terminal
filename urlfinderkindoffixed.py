@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import urllib.request
 from html.parser import HTMLParser
-locationcode = input("Enter the location code:")
+locationcode = input("Enter the location code(from weather.codes):")
 
 source = requests.get('https://weather.com/en-SG/weather/today/l/'+locationcode).text
 
