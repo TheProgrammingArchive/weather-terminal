@@ -7,7 +7,8 @@ import string
 x = ""
 fulltext=""
 country = input("enter your country:")
-url = 'https://weather.codes/'+country+'/'
+final_country = country.replace(" ", "-")
+url = 'https://weather.codes/'+final_country+'/'
 reqs = requests.get(url)
 soupu = BeautifulSoup(reqs.text, 'lxml')
 inman = input("Enter your location: ")
@@ -46,4 +47,3 @@ for links5 in soup.findAll('a'):
     storageout=storageout+x
 #finally prints url
 print(storageout)
-
