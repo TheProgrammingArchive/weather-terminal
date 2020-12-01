@@ -1,7 +1,7 @@
 # weather.com-scraper
 
 ## About the project:
-  This project has been made to scraper weather.com easily. A terminal interface has been allocated to access all the modules. NOTE: PROJECT IS NOT YET COMPLETED
+  This project has been made to scrape weather.com easily. A terminal interface has been allocated to access all the modules. NOTE: PROJECT IS NOT YET COMPLETED
   
 ## REQUIREMENTS:
   Add py 3.8 to path and make sure by typing pip on cmd. Then download the project and run the app named main_reporter.
