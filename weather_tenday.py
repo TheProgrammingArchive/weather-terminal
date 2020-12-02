@@ -1,20 +1,22 @@
 from bs4 import BeautifulSoup
 import requests
 
+#temporary source
 global site_source
 global soup
 
-#temporary source
-site_source = requests.get('https://weather.com/en-IN/weather/tenday/l/bf01d09009561812f3f95abece23d16e123d8c08fd0b8ec7ffc9215c0154913c').text
-soup = BeautifulSoup(site_source, features='lxml')
-
 class weatherTenDay:
+    def __init__(self, site_source):
+        self.site_source = site_source
+        self.src = requests.get(self.site_source).text
+        self.soup = BeautifulSoup(self.src, features='lxml')
+
     def timeof_report(self):
-        time = soup.find('div', class_='DailyForecast--timestamp--iI022').text
+        time = self.soup.find('div', class_='DailyForecast--timestamp--iI022').text
         print(time)
 
     def weather_Details(self):
-        for weather_Report in soup.find_all('summary', class_='Disclosure--Summary--AvowU DaypartDetails--Summary--2nJx1 Disclosure--hideBorderOnSummaryOpen--LEvZQ'):
+        for weather_Report in self.soup.find_all('summary', class_='Disclosure--Summary--AvowU DaypartDetails--Summary--2nJx1 Disclosure--hideBorderOnSummaryOpen--LEvZQ'):
 
             dateof_Report = weather_Report.find('h2', class_='DetailsSummary--daypartName--1Mebr').text
             print(f"Date: {dateof_Report}")
@@ -32,3 +34,7 @@ class weatherTenDay:
             print(f"Wind Details = {wind_Details}")
 
             print()
+
+# rtx = weatherTenDay('https://weather.com/en-IN/weather/tenday/l/bfbafb71cea3672231349f36b198478ecc3d5fd524d0918b8051ee838f743675')
+# rtx.timeof_report()
+# rtx.weather_Details()
