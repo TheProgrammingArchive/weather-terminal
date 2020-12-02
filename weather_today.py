@@ -2,15 +2,14 @@ from bs4 import BeautifulSoup
 import requests
 import csv
 
-global soup
-global source
-
-source = requests.get('https://weather.com/en-IN/weather/hourbyhour/l/bf01d09009561812f3f95abece23d16e123d8c08fd0b8ec7ffc9215c0154913c').text
-soup =  BeautifulSoup(source, features='lxml')
-
 class weatherHourly:
+    def __init__(self, source):
+        self.source = source
+        self.src = requests.get(self.source).text
+        self.soup = BeautifulSoup(self.src, features='lxml')
+
     def weather_atThisHour(self):
-        weather_now = soup.find('div', class_='DaypartDetails--DetailSummaryContent--1c28m Disclosure--SummaryDefault--1z_mF')
+        weather_now = self.soup.find('div', class_='DaypartDetails--DetailSummaryContent--1c28m Disclosure--SummaryDefault--1z_mF')
 
         time_now = weather_now.find('h2', class_='DetailsSummary--daypartName--1Mebr').text
         print(f'Time(Now): {time_now}')
@@ -25,13 +24,14 @@ class weatherHourly:
         print(f'Precipitation Index(Now): {precipindex_current}')
 
         windsdp_current = weather_now.find('div', class_='DetailsSummary--wind--Cv4BH DetailsSummary--extendedData--aaFeV').text
+        print(f'Wind Speed: {windsdp_current}')
 
     def getdateofreport(self):
-        dateofreport =  soup.find('h3', class_='HourlyForecast--longDate--3khKr').text
+        dateofreport = self.soup.find('h3', class_='HourlyForecast--longDate--3khKr').text
         print(dateofreport)
 
     def getHourlyweather(self):
-        for reports in soup.find_all('details', class_='DaypartDetails--DayPartDetail--3yhtR Disclosure--themeList--uBa5q'):
+        for reports in self.soup.find_all('details', class_='DaypartDetails--DayPartDetail--3yhtR Disclosure--themeList--uBa5q'):
 
             timeofreport = reports.find('h2', class_='DetailsSummary--daypartName--1Mebr').text
             print(f"Time: {timeofreport}")
@@ -50,9 +50,11 @@ class weatherHourly:
 
             print()
 
-            if(timeofreport == '23:30'):
+            if(timeofreport >= '23:00'):
                 break
             else:
                 continue
 
 # remove comments under this line to execute program
+# rvx = weatherHourly('https://weather.com/en-IN/weather/hourbyhour/l/bfbafb71cea3672231349f36b198478ecc3d5fd524d0918b8051ee838f743675')
+# rvx.getHourlyweather()
