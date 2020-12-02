@@ -1,10 +1,10 @@
 from bs4 import BeautifulSoup
 import requests
 
-site_source = requests.get('https://weather.com/en-IN/weather/tenday/l/bf01d09009561812f3f95abece23d16e123d8c08fd0b8ec7ffc9215c0154913c').text
-soup = BeautifulSoup(site_source, features='lxml')
+def get_tendayweather(source):
+    site_source = requests.get(source).text
+    soup = BeautifulSoup(site_source, features='lxml')
 
-def get_tendayweather():
     for dropdown_article in soup.find_all('div', class_='DaypartDetails--Content--XQooU DaypartDetails--contentGrid--3cYKg'):
     # print(dropdown_article)
         i = 0
@@ -69,3 +69,4 @@ def get_tendayweather():
 
         print('\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n')
 
+# get_tendayweather('https://weather.com/en-IN/weather/tenday/l/bfbafb71cea3672231349f36b198478ecc3d5fd524d0918b8051ee838f743675')
