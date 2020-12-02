@@ -38,3 +38,4 @@ class weatherTenDay:
 # rtx = weatherTenDay('https://weather.com/en-IN/weather/tenday/l/bfbafb71cea3672231349f36b198478ecc3d5fd524d0918b8051ee838f743675')
 # rtx.timeof_report()
 # rtx.weather_Details()
+
