@@ -230,3 +230,52 @@ Yemen
 Zambia
 Zimbabwe
 United States Of America/alabama
+United States Of America/alaska
+United States Of America/arizona
+United States Of America/arkansas
+United States Of America/california
+United States Of America/colorado
+United States Of America/connecticut
+United States Of America/delaware
+United States Of America/district of columbia
+United States Of America/florida
+United States Of America/georgia
+United States Of America/hawaii
+United States Of America/idaho
+United States Of America/illinois
+United States Of America/indiana
+United States Of America/iowa
+United States Of America/kansas
+United States Of America/louisiana
+United States Of America/maine
+United States Of America/maryland
+United States Of America/massachusetts
+United States Of America/michigan
+United States Of America/minnesota
+United States Of America/mississippi
+United States Of America/missouri
+United States Of America/montana
+United States Of America/nebraska
+United States Of America/nevada
+United States Of America/new hampshire
+United States Of America/new jersey
+United States Of America/new mexico
+United States Of America/new york
+United States Of America/north carolina
+United States Of America/north dakota
+United States Of America/ohio
+United States Of America/oklahoma
+United States Of America/oregon
+United States Of America/pennsylvania
+United States Of America/rhode island
+United States Of America/south carolina
+United States Of America/south dakota
+United States Of America/tennessee
+United States Of America/texas
+United States Of America/utah
+United States Of America/vermont
+United States Of America/virginia
+United States Of America/washington
+United States Of America/west virginia
+United States Of America/wisconsin
+United States Of America/wyoming
