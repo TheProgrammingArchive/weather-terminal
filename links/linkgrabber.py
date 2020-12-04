@@ -54,10 +54,6 @@ def get_Link():
            fulltext = fulltext+x + "\n"
            break
 
-        elif capinman not in x:
-            print('notf')
-
-
     listya = list(filter(bool, fulltext.splitlines()))
     lengthoflist = len(listya)
 
