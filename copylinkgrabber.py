@@ -63,7 +63,32 @@ def get_Link():
         print(f'{i+1}. {listya[i]}')
         i += 1
 
-    print(i)
+    #print(i)
+    while i<=0:
+        inman = input("Invalid location entered! Re-enter with the correct location: ")
+
+        while len(inman) <= 2 or len(inman) >= 40:
+            inman = input('Location string length too small! Please try again: ')
+
+        #changes every first letter in input to capital
+        capinman = string.capwords(inman)
+        #find li tag and parses location from it
+        for tag in soupu.find_all("li"):
+            x = tag.text+"\n"
+            if capinman in x:
+               fulltext = fulltext+x + "\n"
+               break
+
+        listya = list(filter(bool, fulltext.splitlines()))
+        lengthoflist = len(listya)
+
+        i = 0
+
+        for content in listya:
+            print(f'{i+1}. {listya[i]}')
+            i += 1
+
+        
 
     #prints the locations
     # print(fulltext)
@@ -83,7 +108,7 @@ def get_Link():
         else:
             break
 
-    print(optionoflocation)
+    #print(optionoflocation)
 
     #minuses one from option for list selecting
     listoption = int(optionoflocation)-1
@@ -109,11 +134,5 @@ def get_Link():
 
     storageout = storageout.split('/')
     code = storageout[4]
-
-    
-
-    
     return (code)
-    
-
-print(get_Link())
+x = get_Link()
