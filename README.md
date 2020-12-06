@@ -8,13 +8,14 @@
   You can do so by typing pip install {name of package}
   
 ## USAGE:
+  You can either install the project by downloading through a zip file or you can install it from pypi. In case you are downloading it as a zip, run the module called application   to start the app. __UNDER ANY CONDITION, DO NOT TAMPER WITH THE MODULES OR DELETE ANY FILE__. When you start the app for the first time it should run you through the location 
+  registration guidelines and register your default location so you dont need to enter it all the time!
   
+## In what way can you use this project?
+  You can only clone this project for your __OWN__ usage. You cannot publish this package or modify its content. In case you want to know more please read our license page!
   
-## ORGANISATION:
-  We do not have any organisation. If you want to give any suggestions please start a pull request here. We'll consider that and add it. Also __DO NOT SPAM FOR ANY FEATURES__.
-  
-## In case of encountering a bug:
-  Raise a ticket under the issues tab and we'll check it when we can. __NOTE__:  Remeber that only two people are working on this project. Be kind!
+## I want a feature to be impemented or I have found a bug
+  If 
  
 
   
