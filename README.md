@@ -16,6 +16,6 @@
   
 ## I want a feature to be impemented or I have found a bug
   no. no features. features bad. bad user. no. just no. :-)
-  also, if you do actually find a bug, your just schizophrenic. our programs have no bugs. take your pills.
+  also, if you do actually find a bug, you're just schizophrenic. our programs have no bugs. take your pills.
   
  
