@@ -18,5 +18,6 @@
   no. no features. features bad. bad user. no. just no. :-)
   also, if you do actually find a bug, you're just schizophrenic. our programs have no bugs. take your pills.
   call an exterminator if you find a ant or cockroach in the program or on your laptop.
+  call your lawyer if you feel that this program is extremely hard for you to use. we shall settle this stupidity in court
   
  
