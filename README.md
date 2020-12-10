@@ -15,9 +15,5 @@
   You can only clone this project for your __OWN__ usage. You cannot publish this package or modify its content. In case you want to know more please read our license page!
   
 ## I want a feature to be impemented or I have found a bug
-  no. 
-## tutorial to use this program:
-  we have made a video for easy understanding on how to use the program :
-  https://www.youtube.com/watch?v=iik25wqIuFo
-  
+  To be updated
  
