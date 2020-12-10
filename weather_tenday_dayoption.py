@@ -15,10 +15,8 @@ signal(SIGINT, handler)
 def clear():
     if os.name in ('nt','dos'):
         os.system("cls")
-    elif os.name in ('linux','osx','posix'):
+    else os.name in ('linux','osx','posix'):
         os.system("clear")
-    else:
-        print("\n") * 120
 
 class weatherTenDay:
     def __init__(self, site_source):
