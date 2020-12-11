@@ -1,5 +1,4 @@
 from weather_today import weatherHourly
-from dropdown import get_tendayweather
 from weather_tenday import weatherTenDay
 from table import get_tableToday
 import os
@@ -38,6 +37,8 @@ class Application():
 
                 if command_arg.upper() == 'WEATHER TODAY':
                     weather_tdayf.getHourlyweather()
+                if command_arg.upper() == 'WEATHER TENDAY':
+                    weather_tendayf.weather_Details()
 
             else:
                 print('Unknown command!\n ')
