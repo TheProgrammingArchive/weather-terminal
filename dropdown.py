@@ -1,8 +1,35 @@
 from bs4 import BeautifulSoup
 import requests
 import time
+import sys
+def get_tendeyweather(source):
+    global datetime
+    global maxtemp
+    global mintemp
+    global descriptioncurrent
+    global descriptionlater
+    global humiditycurrent
+    global uvindexcurrent
+    global uvindexlater
+    global humiditylater
+    global sunrise
+    global sunset
+    global moonrise
+    global moonset
+    datetime = []
+    maxtemp = []
+    mintemp = []
+    descriptioncurrent = []
+    descriptionlater = []
+    humiditycurrent = []
+    uvindexcurrent = []
+    uvindexlater = []
+    humiditylater = []
+    sunrise = []
+    sunset = []
+    moonrise = []
+    moonset = []
 
-def get_tendayweather(source):
     site_source = requests.get(source).text
     soup = BeautifulSoup(site_source, features='lxml')
 
@@ -11,69 +38,100 @@ def get_tendayweather(source):
     # print(dropdown_article)
         i = 0
         for date_time in dropdown_article.find_all('h3', class_='DailyContent--daypartName--3G5Y8'):
+            
             date_time = date_time.text
             if(i == 0):
-                print(date_time[0:7])
+                #print(date_time[0:7])
+                datetime.append(date_time[0:7])
             else:
                 break
             i = i + 1
 
         i = 0
-        print()
+        #print()
         for temp_morning in dropdown_article.find_all('span', class_='DailyContent--temp--_8DL5'):
             temp_morning = temp_morning.text
             if(i == 0):
-                print(f'Maximum Temperature: {temp_morning}')
+                #print(f'Maximum Temperature: {temp_morning}')
+                maxtemp.append(temp_morning)
             else:
-                print(f'Minimum Temperature: {temp_morning}')
+                #print(f'Minimum Temperature: {temp_morning}')
+                mintemp.append(temp_morning)
             i = i + 1
 
         i = 0
-        print()
+        #print()
         for weather_desc in dropdown_article.find_all('p', class_='DailyContent--narrative--3AcXd'):
             weather_desc = weather_desc.text
             if(i == 0):
-                print(f'Description (Currently): {weather_desc}')
+                #print(f'Description (Currently): {weather_desc}')
+                descriptioncurrent.append(weather_desc)
             else:
-                print(f'Description (Later): {weather_desc}')
+                #print(f'Description (Later): {weather_desc}')
+                descriptionlater.append(weather_desc)
             i = i + 1
 
 
         i = 0
-        print()
+        #print()
         for details in dropdown_article.find_all('ul', class_='DetailsTable--DetailsTable--2qH8C DaypartDetails--DetailsTable--2fwt-'):
             for table_content in details.find_all('li', class_='DetailsTable--listItem--1MW7X'):
                 table_content = table_content.text
                 if(i == 0):
-                    print(f'Humidity (Currently): {table_content[8:11]}')
+                    #print(f'Humidity (Currently): {table_content[8:11]}')
+                    humiditycurrent.append(table_content[8:11])
 
                 elif(i == 1):
-                    print(f'UV Index (Currently): {table_content[8:20]}')
-
+                    #print(f'UV Index (Currently): {table_content[8:20]}')
+                    uvindexcurrent.append(table_content[8:20])
                 elif(i == 2):
-                    print(table_content)
-
+                    #print(table_content)
+                    sunrise.append(table_content)
                 elif (i == 3):
-                    print(table_content)
+                    
+                    #print(table_content)
+                    sunset.append(table_content)
 
                 elif (i == 4):
-                    print(f'Humidity (Later): {table_content[8:20]}')
+                    #print(f'Humidity (Later): {table_content[8:20]}')
+                    humiditylater.append(table_content[8:20])
 
                 elif(i == 5):
-                    print(f'UV Index (Later): {table_content[8:20]}')
+                    #print(f'UV Index (Later): {table_content[8:20]}')
+                    uvindexlater.append(table_content[8:20])
 
                 elif(i == 6):
-                    print(table_content)
-
+                    #print(table_content)
+                    moonrise.append(table_content)
                 elif(i == 7):
-                    print(table_content)
+                    #print(table_content)
+                    moonset.append(table_content)
                 i = i + 1
 
-        gochar = input('\n>>')
-        if gochar.lower() == 'q':
-            break
-        else:
-            continue
-        print('\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n')
-
-# get_tendayweather('https://weather.com/en-IN/weather/tenday/l/bfbafb71cea3672231349f36b198478ecc3d5fd524d0918b8051ee838f743675')
+        #gochar = input('\n>>')
+        #if gochar.lower() == 'q':
+            #break
+        #else:
+            #continue
+        #print('\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n')
+def get_tendaylists(sourcem,listnum):
+    get_tendeyweather(sourcem)
+    print()
+    print('Date: ' + datetime[listnum])
+    print()
+    print('Maximum Temperature: ' + maxtemp[listnum])
+    print('Minimum Temperature: ' + mintemp[listnum])
+    print()
+    print('Description (Currently): '+descriptioncurrent[listnum] )
+    print('Description (Later): '+descriptionlater[listnum])
+    print()
+    print('Humidity (Currently): '+humiditycurrent[listnum])
+    print('UV Index (Currently): '+uvindexcurrent[listnum])
+    print(sunrise[listnum])
+    print(sunset[listnum])
+    print()
+    print('Humidity (Later): '+humiditylater[listnum])
+    print('UV Index (Later): '+uvindexlater[listnum])
+    print(moonrise[listnum])
+    print(moonset[listnum])
+    print()

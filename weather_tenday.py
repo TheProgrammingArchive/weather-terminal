@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import os
+from dropdown import get_tendaylists
 global site_source
 global soup
 import subprocess
@@ -17,7 +18,6 @@ def clear():
         os.system("cls")
     elif os.name in ('linux','osx','posix'):
         os.system("clear")
-
 class weatherTenDay:
     def __init__(self, site_source):
         self.site_source = site_source
@@ -63,9 +63,7 @@ class weatherTenDay:
             winddetails.append(wind_Details)
 
     def weather_Details(self):
-        rtx = weatherTenDay('https://weather.com/en-IN/weather/tenday/l/bfbafb71cea3672231349f36b198478ecc3d5fd524d0918b8051ee838f743675')
-        rtx.timeof_report()
-        rtx.weather_Deails()
+        weatherTenDay.weather_Deails(self)
         listnum = 0
         clear()
         print('''
@@ -81,7 +79,7 @@ class weatherTenDay:
         print('Description: '+description[listnum])
         print('Precipitation Index: '+avgindex[listnum])
         print('Wind Details = '+ winddetails[listnum])
-        inputs = input("Enter an option(n for next day and p for previous): ")
+        inputs = input("Enter an option(n for next day and p for previous and e for extended info): ")
         while True:
             if inputs == 'n':
                 clear()
@@ -112,7 +110,7 @@ class weatherTenDay:
                     print('Description: '+description[listnum])
                     print('Precipitation Index: '+avgindex[listnum])
                     print('Wind Details = '+ winddetails[listnum])
-                    inputs = input("Enter an option(n for next day and p for previous): ")
+                    inputs = input("Enter an option(n for next day and p for previous and e for extended info): ")
             elif inputs == 'p':
                 clear()
                 dates[listnum]
@@ -142,9 +140,12 @@ class weatherTenDay:
                     print('Description: '+description[listnum])
                     print('Precipitation Index: '+avgindex[listnum])
                     print('Wind Details = '+ winddetails[listnum])
-                    inputs = input("Enter an option(n for next day and p for previous): ")
+                    inputs = input("Enter an option(n for next day and p for previous and e for extended info): ")
             elif inputs == 'q':
                 break
+            elif inputs == 'e':
+                get_tendaylists(self.site_source,listnum+1)
+                inputs = input("Enter an option(n for next day and p for previous and e for extended info): ")
             else:
                 print('''
                                                                 | | | |                        | (_)
@@ -154,7 +155,7 @@ class weatherTenDay:
                                                \_/\_/ \___|\__,_|\__|_| |_|\___|_|         \___|_|_|
 
     ''')
-                inputs = input('invalid option entered. please enter again: ')
+                inputs = input('invalid option entered. please enter again(n for next day and p for previous and e for extended info): ')
 
                 
 
