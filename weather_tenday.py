@@ -157,5 +157,4 @@ class weatherTenDay:
     ''')
                 inputs = input('invalid option entered. please enter again(n for next day and p for previous and e for extended info): ')
 
-                
 
