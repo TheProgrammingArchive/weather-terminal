@@ -67,7 +67,7 @@ class Application():
 
                 elif command_arg.upper() == 'WEATHER -T':
                     trpt = weather_tdayf.current_temperature()
-                    print(f'Temperature now: {trpt}')
+                    print(f'{trpt}')
 
                 elif command_arg.upper() == 'WEATHER -DSC':
                     trpt = weather_tdayf.weather_desc()
@@ -75,11 +75,11 @@ class Application():
 
                 elif command_arg.upper() == 'WEATHER -PRS':
                     trpt = weather_tdayf.precip_current()
-                    print(f'Precipitation index: {trpt}')
+                    print(f'{trpt}')
 
                 elif command_arg.upper() == 'WEATHER -WS':
                     trpt = weather_tdayf.wspeed()
-                    print(f'Windspeed: {trpt}')
+                    print(f'{trpt}')
 
                 elif command_arg.upper() == 'WEATHER TODAY':
                     weather_tdayf.getHourlyweather()
