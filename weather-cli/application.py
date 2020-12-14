@@ -1,6 +1,6 @@
 from weather_today import weatherHourly
 from dropdown import get_tendayweather
-from weather_tenday import weatherTenDay
+from weather_tenday import weatherTenDay_toggle
 from table import get_tableToday
 from toggle_module import toggle_tenday, toggle_drpdw
 import settings
@@ -20,12 +20,11 @@ def title():
         ''')
 
 class Application():
-
     def start_application(self):
 
-        keywords = ['SETTINGS', 'CLEAR()','EXIT','WEATHER TODAY', 'WEATHER NOW', 'WEATHER TENDAY', 'DETAILED TENDAY', 'TIME -N', 'DATE -T', 'WEATHER -T', 'WEATHER -DSC', 'WEATHER -PRS', 'WEATHER -WS', 'WEATHER -HDU', 'WEATHER -DEW', 'WEATHER -PAR','WEATHER -UV', 'WEATHER -VIS', 'WEATHER -MNP', 'LOC -P', 'LOC -T', 'LOC -FAV']
+        keywords = ['SETTINGS', 'CLEAR()','EXIT','WEATHER TODAY', 'WEATHER NOW', 'WEATHER TENDAY', 'DETAILED TENDAY', 'TIME -N', 'DATE -T', 'WEATHER -T', 'WEATHER -DSC', 'WEATHER -PRS', 'WEATHER -WS', 'WEATHER -HDU', 'WEATHER -DEW', 'WEATHER -PAR','WEATHER -UV', 'WEATHER -VIS', 'WEATHER -MNP', 'LOC -P', 'LOC -T', 'LOC -FAV','HELP']
 
-        print('Type -help or [--h] for help or -options or [--o] for commands!\n\n')
+        print('type help to display the help page and to view what commands are available!\n\n')
 
         while True:
             print()
@@ -50,11 +49,10 @@ class Application():
                 prefix_table = f'https://weather.com/en-IN/weather/today/l/{content_value}'
 
                 weather_tdayf = weatherHourly(prefix_hrbr)
-                weather_tendayf = weatherTenDay(prefix_tenday)
+                weather_tendayf = weatherTenDay_toggle(prefix_tenday)
 
                 weather_tble = get_tableToday(prefix_table)
-                toggle_wtenday = toggle_tenday.weatherTenDay_toggle(prefix_tenday)
-
+                toggle_wtenday = toggle_tenday.weatherTenDay_toggle(prefix_tenday)  
                 if command_arg.upper() == 'SETTINGS':
                     settings_content = settings.settings_page()
                     print(f'Toggle is now: {settings_content}')
@@ -139,7 +137,8 @@ class Application():
                             filenew.seek(0)
                             filenew.write('')
 
-                            from linkgrabber import x
+                            from linkgrabber import get_Link
+                            x = get_Link()
 
                             prefix = f'https://weather.com/en-IN/weather/hourbyhour/l/{x}'
                             nslocation = weatherHourly(prefix)
@@ -165,6 +164,25 @@ class Application():
 
                         elif contel == 'DISABLED':
                             weather_tendayfdtl = get_tendayweather(prefix_tenday)
+                elif command_arg.upper() == 'HELP':
+                    print('''The list of commands and their functions:
+1. help --  displays this page
+2. settings -- change the way you would like the ten day weather to be displayed
+3. clear() -- clear the screen
+4. weather today -- displays the present weather along with a 10 hour forcast
+5. weather tenday -- displays the weather for the next tendays, type p to go backwards and n to go forwards. type exit to exit the tenday section and return back.
+6. weather now -- displays the weather for this hour
+7. weather -t -- displays the current temperature
+8. weather -dsc -- displays a short description of the current temperature
+9. weather -prs -- displays the current precipitation
+10. weather -ws -- displays the current wind speed
+11. weather -hdu -- displays the current amount of humidity
+12. weather -dew -- displays the current dew point
+13. weather -par -- displays the current atmospheric pressure
+14. weather -uv -- displays the current ultraviolet ray index(UV INDEX)
+15. weather -mnp -- displays the current moon phase
+16. date -t -- displays the date at which the weather forcast was reported
+17. time -n -- displays the time at which the weather forcast was reported''')
 
                 elif command_arg.upper() == '':
                     pass
@@ -220,7 +238,8 @@ if __name__ == '__main__':
 
         time.sleep(2)
 
-        from linkgrabber import x
+        from linkgrabber import get_Link
+        x=get_Link()
         nsApplication.help_fs()
 
         prefix = f'https://weather.com/en-IN/weather/hourbyhour/l/{x}'

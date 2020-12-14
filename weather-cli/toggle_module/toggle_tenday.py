@@ -89,6 +89,10 @@ class weatherTenDay_toggle:
         print('Description: ' + description[listnum])
         print('Precipitation Index: ' + avgindex[listnum])
         print('Wind Details = ' + winddetails[listnum])
+        print()
+        print('Extended Information: ')
+        print()
+        toggle_drpdw.get_tendaylists(self.site_source, listnum + 1)
         inputs = input("\n\n>>  ")
         while True:
             if inputs.upper() == 'N':
@@ -108,6 +112,10 @@ class weatherTenDay_toggle:
                     print('Description: ' + description[listnum])
                     print('Precipitation Index: ' + avgindex[listnum])
                     print('Wind Details = ' + winddetails[listnum])
+                    print()
+                    print('Extended Information: ')
+                    print()
+                    toggle_drpdw.get_tendaylists(self.site_source, listnum + 1)
                     inputs = input(">> ")
             elif inputs.upper() == 'P':
                 clear()
@@ -126,14 +134,13 @@ class weatherTenDay_toggle:
                     print('Description: ' + description[listnum])
                     print('Precipitation Index: ' + avgindex[listnum])
                     print('Wind Details = ' + winddetails[listnum])
+                    print()
+                    print('Extended Information: ')
+                    print()
+                    toggle_drpdw.get_tendaylists(self.site_source, listnum + 1)
                     inputs = input(">>")
             elif inputs.upper() == 'EXIT':
                 break
-
-            elif inputs.upper() == 'E':
-                toggle_drpdw.get_tendaylists(self.site_source, listnum + 1)
-                inputs = input(">> ")
-
             else:
                 #title
                 inputs = input('>> ')
