@@ -24,7 +24,7 @@ class Application():
 
         keywords = ['SETTINGS', 'CLEAR()','EXIT','WEATHER TODAY', 'WEATHER NOW', 'WEATHER TENDAY', 'DETAILED TENDAY', 'TIME -N', 'DATE -T', 'WEATHER -T', 'WEATHER -DSC', 'WEATHER -PRS', 'WEATHER -WS', 'WEATHER -HDU', 'WEATHER -DEW', 'WEATHER -PAR','WEATHER -UV', 'WEATHER -VIS', 'WEATHER -MNP', 'LOC -P', 'LOC -T', 'LOC -FAV','HELP']
 
-        print('type help to display the help page and to view what commands are available!\n\n')
+        print('Type help or [--h] for help or EXIT to exit!\n\n')
 
         while True:
             print()
@@ -164,7 +164,7 @@ class Application():
 
                         elif contel == 'DISABLED':
                             weather_tendayfdtl = get_tendayweather(prefix_tenday)
-                elif command_arg.upper() == 'HELP':
+                elif command_arg.upper() == 'HELP' or command_arg.upper() == '--HELP':
                     print('''The list of commands and their functions:
 1. help --  displays this page
 2. settings -- change the way you would like the ten day weather to be displayed
