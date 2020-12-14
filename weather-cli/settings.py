@@ -13,7 +13,7 @@ def settings_page():
 
             print(f'TOGGLE: {content}')
             content_cpn = input('\nPress X to disable toggle, Y to enable toggle or Q to exit settings and save changes: ')
-            if content_cpn == 'X':
+            if content_cpn.upper() == 'X':
                 if content == 'ENABLED':
                     ftc = open('settingspage.txt', 'w')
                     ftc.seek(0)
@@ -26,7 +26,7 @@ def settings_page():
                     print('Already disabled!')
                     continue
 
-            elif content_cpn == 'Y':
+            elif content_cpn.upper() == 'Y':
                 if content == 'DISABLED':
                     ftc = open('settingspage.txt', 'w')
                     ftc.seek(0)
@@ -39,14 +39,14 @@ def settings_page():
                     print('ALREADY ENABLED')
                     continue
 
-            elif content_cpn == 'Q':
+            elif content_cpn.upper() == 'Q':
                 file.close()
                 break
 
             elif content_cpn == '':
                 continue
             else:
-                input('\nPress X to disable toggle or Q to exit settings: ')
+                continue
 
     return content
 
