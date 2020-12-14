@@ -182,7 +182,7 @@ class Application():
 14. weather -uv -- displays the current ultraviolet ray index(UV INDEX)
 15. weather -mnp -- displays the current moon phase
 16. date -t -- displays the date at which the weather forcast was reported
-17. time -n -- displays the time at which the weather forcast was reported''')
+''')
 
                 elif command_arg.upper() == '':
                     pass
