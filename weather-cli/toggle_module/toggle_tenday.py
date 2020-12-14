@@ -99,7 +99,7 @@ class weatherTenDay_toggle:
                 clear()
                 length = len(dates)
                 listnum = listnum + 1
-                if listnum > 13:
+                if listnum > 12:
                     listnum = listnum - 1
                     #title
                     title()
