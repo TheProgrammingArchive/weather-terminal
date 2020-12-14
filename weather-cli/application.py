@@ -22,7 +22,7 @@ def title():
 class Application():
     def start_application(self):
 
-        keywords = ['SETTINGS', 'CLEAR()','EXIT','WEATHER TODAY', 'WEATHER NOW', 'WEATHER TENDAY', 'DETAILED TENDAY', 'TIME -N', 'DATE -T', 'WEATHER -T', 'WEATHER -DSC', 'WEATHER -PRS', 'WEATHER -WS', 'WEATHER -HDU', 'WEATHER -DEW', 'WEATHER -PAR','WEATHER -UV', 'WEATHER -VIS', 'WEATHER -MNP', 'LOC -P', 'LOC -T', 'LOC -FAV','HELP']
+        keywords = ['--H', '-HELP', 'SETTINGS', 'CLEAR()','EXIT','WEATHER TODAY', 'WEATHER NOW', 'WEATHER TENDAY', 'DETAILED TENDAY', 'TIME -N', 'DATE -T', 'WEATHER -T', 'WEATHER -DSC', 'WEATHER -PRS', 'WEATHER -WS', 'WEATHER -HDU', 'WEATHER -DEW', 'WEATHER -PAR','WEATHER -UV', 'WEATHER -VIS', 'WEATHER -MNP', 'LOC -P', 'LOC -T', 'LOC -FAV','HELP']
 
         print('Type -help or [--h] for help or EXIT to exit!\n\n')
 
