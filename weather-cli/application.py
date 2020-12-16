@@ -208,10 +208,10 @@ class Application():
                     print('''The list of commands and their functions:
 1. help --  displays this page
 2. settings -- change the way you would like the ten day weather to be displayed
-3. clear() -- clear the screen
+3. clear() -- clears the screen
 4. weather today -- displays the present weather along with a 10 hour forcast
 5. weather tenday -- displays the weather for the next tendays, type p to go backwards and n to go forwards. type exit to exit the tenday section and return back.
-6. weather now -- displays the weather for this hour
+6. weather now -- displays the current weather conditions
 7. weather -t -- displays the current temperature
 8. weather -dsc -- displays a short description of the current temperature
 9. weather -prs -- displays the current precipitation
@@ -221,8 +221,7 @@ class Application():
 13. weather -par -- displays the current atmospheric pressure
 14. weather -uv -- displays the current ultraviolet ray index(UV INDEX)
 15. weather -mnp -- displays the current moon phase
-16. date -t -- displays the date at which the weather forcast was reported
-17. time -n -- displays time at which last record was take (UNAVAIL)''')
+16. date -t -- displays the date at which the weather forcast was reported''')
 
                 elif command_arg.upper() == '':
                     pass
