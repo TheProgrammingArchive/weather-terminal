@@ -6,6 +6,8 @@ def get_tendayweather(source):
     site_source = requests.get(source).text
     soup = BeautifulSoup(site_source, features='lxml')
 
+
+    print('Press enter to move forward and Q to quit! \n\n')
     for dropdown_article in soup.find_all('div', class_='DaypartDetails--Content--XQooU DaypartDetails--contentGrid--3cYKg'):
         gochar = None
     # print(dropdown_article)
