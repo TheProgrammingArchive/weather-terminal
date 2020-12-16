@@ -9,6 +9,7 @@ import os
 import time
 import webbrowser
 
+
 def title():
     print('''
                                                                     | | | |                        | (_)
@@ -19,10 +20,14 @@ def title():
 
         ''')
 
+
 class Application():
     def start_application(self):
 
-        keywords = ['--H', '-HELP', 'SETTINGS', 'CLEAR()','EXIT','WEATHER TODAY', 'WEATHER NOW', 'WEATHER TENDAY', 'DETAILED TENDAY', 'TIME -N', 'DATE -T', 'WEATHER -T', 'WEATHER -DSC', 'WEATHER -PRS', 'WEATHER -WS', 'WEATHER -HDU', 'WEATHER -DEW', 'WEATHER -PAR','WEATHER -UV', 'WEATHER -VIS', 'WEATHER -MNP', 'LOC -P', 'LOC -T', 'LOC -FAV','HELP']
+        keywords = ['--H', '-HELP', 'SETTINGS', 'CLEAR()', 'EXIT', 'WEATHER TODAY', 'WEATHER NOW', 'WEATHER TENDAY',
+                    'DETAILED TENDAY', 'TIME -N', 'DATE -T', 'WEATHER -T', 'WEATHER -DSC', 'WEATHER -PRS',
+                    'WEATHER -WS', 'WEATHER -HDU', 'WEATHER -DEW', 'WEATHER -PAR', 'WEATHER -UV', 'WEATHER -VIS',
+                    'WEATHER -MNP', 'LOC -P', 'LOC -T', 'LOC -PR', 'HELP']
 
         print('Type -help or [--h] for help or EXIT to exit!\n\n')
 
@@ -33,13 +38,20 @@ class Application():
                 command_arg = input('> ')
 
             if command_arg.upper() in keywords:
-                file = open('gotloc.txt', 'r')
 
-                location_content = file.read()
-                location_content = location_content.split(':')
+                if os.path.isfile('temploc.txt') == True:
+                    filo = open('temploc.txt', 'r')
+                    location_content = filo.read()
+                    location_content = location_content.split(':')
+                    filo.close()
+
+                else:
+                    file = open('gotloc.txt', 'r')
+                    location_content = file.read()
+                    location_content = location_content.split(':')
+                    file.close()
+
                 # print(location_content)
-
-                file.close()
 
                 content_value = location_content[1]
                 content_value = content_value.replace(' ', '')
@@ -52,7 +64,7 @@ class Application():
                 weather_tendayf = weatherTenDay_toggle(prefix_tenday)
 
                 weather_tble = get_tableToday(prefix_table)
-                toggle_wtenday = toggle_tenday.weatherTenDay_toggle(prefix_tenday)  
+                toggle_wtenday = toggle_tenday.weatherTenDay_toggle(prefix_tenday)
                 if command_arg.upper() == 'SETTINGS':
                     settings_content = settings.settings_page()
                     print(f'Toggle is now: {settings_content}')
@@ -74,6 +86,14 @@ class Application():
                 elif command_arg.upper() == 'WEATHER -PRS':
                     trpt = weather_tdayf.precip_current()
                     print(f'{trpt}')
+
+                elif command_arg.upper() == "LOC -PR":
+                    if os.path.isfile('temploc.txt'):
+                        os.remove('temploc.txt')
+                        print('Returning to permanent location!')
+
+                    else:
+                        continue
 
                 elif command_arg.upper() == 'WEATHER -WS':
                     trpt = weather_tdayf.wspeed()
@@ -101,33 +121,51 @@ class Application():
 
                 elif command_arg.upper() == 'WEATHER -DEW':
                     dew = weather_tble[3]
-                    dew = dew[9: ]
+                    dew = dew[9:]
                     print(f'Dew point: {dew}')
 
                 elif command_arg.upper() == 'WEATHER -PAR':
                     prs = weather_tble[4]
-                    prs = prs[8: ]
+                    prs = prs[8:]
                     print(f'Atm pressure: {prs}')
 
                 elif command_arg.upper() == 'WEATHER -UV':
                     uv = weather_tble[5]
-                    uv = uv[8: ]
+                    uv = uv[8:]
                     print(f'UV Index: {uv}')
 
                 elif command_arg.upper() == 'WEATHER -VIS':
                     vis = weather_tble[6]
-                    vis = vis[10: ]
+                    vis = vis[10:]
                     print(f'Visibility: {vis}')
 
                 elif command_arg.upper() == 'WEATHER -MNP':
                     mnp = weather_tble[7]
-                    mnp = mnp[10: ]
+                    mnp = mnp[10:]
                     print(f'Moon phase: {mnp}')
 
                 elif command_arg.upper() == 'CLEAR()':
                     toggle_tenday.clear()
                     title()
                     print(f'Location: {location_content[0]}')
+
+                elif command_arg.upper() == 'LOC -T':
+                    fltemp = open('temploc.txt', 'w+')
+                    fltemp.seek(0)
+                    fltemp.write('')
+
+                    from linkgrabber import get_Link
+
+                    x = get_Link()
+
+                    prefix = f'https://weather.com/en-IN/weather/hourbyhour/l/{x}'
+                    nslocation = weatherHourly(prefix)
+
+                    location_Get = nslocation.location_m()
+                    fltemp.write(f'{location_Get}: {x}')
+
+                    fltemp.seek(0)
+                    fltemp.close()
 
                 elif command_arg.upper() == 'LOC -P':
                     confirmation = input('\n\nAre you sure you want to change your permanent location (Y/N)? >> ')
@@ -163,7 +201,9 @@ class Application():
                             toggle_wtenday.weather_Details()
 
                         elif contel == 'DISABLED':
-                            weather_tendayfdtl = get_tendayweather(prefix_tenday)
+                            get_tendayweather(prefix_tenday)
+
+        
                 elif command_arg.upper() == '-HELP' or command_arg.upper() == '--H':
                     print('''The list of commands and their functions:
 1. help --  displays this page
@@ -188,7 +228,10 @@ class Application():
                     pass
 
                 elif command_arg.upper() == 'EXIT':
-                    time.sleep(3)
+                    if os.path.isfile('temploc.txt') == True:
+                        os.remove('temploc.txt')
+
+                    time.sleep(1.5)
                     exit()
 
             else:
@@ -196,7 +239,8 @@ class Application():
                 continue
 
     def setup(self):
-        print('Since this application is being run for the first time you will have to enter a few details before we get started!')
+        print(
+            'Since this application is being run for the first time you will have to enter a few details before we get started!')
         print('Your default location for the app will be set now. Please wait for a second\n\n')
 
     def help_fs(self):
@@ -206,13 +250,21 @@ class Application():
     def help_startup(self):
         pass
 
+
 if __name__ == '__main__':
     title()
 
+    if os.path.isfile('temploc.txt') == True:
+        os.remove('temploc.txt')
+
+    else:
+        pass
+
     if os.path.exists('gotloc.txt') == True:
+
         with open('gotloc.txt') as file:
             content = file.read()
-            content= content.split(':')
+            content = content.split(':')
             content = content[0]
             file.close()
         print(f'PLOC: {content}')
@@ -239,7 +291,8 @@ if __name__ == '__main__':
         time.sleep(2)
 
         from linkgrabber import get_Link
-        x=get_Link()
+
+        x = get_Link()
         nsApplication.help_fs()
 
         prefix = f'https://weather.com/en-IN/weather/hourbyhour/l/{x}'
@@ -256,5 +309,3 @@ if __name__ == '__main__':
         nsApplication.start_application()
 else:
     raise ImportError
-    exit(1)
-    
