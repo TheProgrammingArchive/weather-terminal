@@ -23,7 +23,7 @@
   This should start the app!
   
 ## INSTALLING FROM PYPI:
-  NDB PUBLISH SSH, HTTPS KEY AUTH INVALID {RBD}
+  update plz  
   
 
 ## USAGE:
