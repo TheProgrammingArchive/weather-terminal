@@ -65,10 +65,10 @@ def get_tendayweather(source):
                     print(f'UV Index (Later): {table_content[8:20]}')
 
                 elif(i == 6):
-                    print(table_content)
+                    print('Moonrise: '+ table_content[8:])
 
                 elif(i == 7):
-                    print(table_content)
+                    print('Moonset: ' + table_content[7:])
                 i = i + 1
 
         gochar = input('\n>>')
