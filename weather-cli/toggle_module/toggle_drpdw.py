@@ -105,10 +105,10 @@ def get_tendeyweather(source):
 
                 elif (i == 6):
                     # print(table_content)
-                    moonrise.append(table_content)
+                    moonrise.append(table_content[8:])
                 elif (i == 7):
                     # print(table_content)
-                    moonset.append(table_content)
+                    moonset.append(table_content[7:])
                 i = i + 1
 
         # gochar = input('\n>>')
@@ -137,7 +137,7 @@ def get_tendaylists(sourcem, listnum):
     print()
     print('Humidity (Later): ' + humiditylater[listnum])
     print('UV Index (Later): ' + uvindexlater[listnum])
-    print(moonrise[listnum])
-    print(moonset[listnum])
+    print('Moonrise: ' + moonrise[listnum])
+    print('Moonset: ' + moonset[listnum])
     print()
 
