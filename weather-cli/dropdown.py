@@ -53,10 +53,10 @@ def get_tendayweather(source):
                     print(f'UV Index (Currently): {table_content[8:20]}')
 
                 elif(i == 2):
-                    print(table_content)
+                    print('Sunrise: ' + table_content[7:])
 
                 elif (i == 3):
-                    print(table_content)
+                    print('Sunset: ' + table_content[6:])
 
                 elif (i == 4):
                     print(f'Humidity (Later): {table_content[8:20]}')
