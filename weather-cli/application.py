@@ -96,8 +96,16 @@ class Application():
                     if os.path.isfile('temploc.txt'):
                         os.remove('temploc.txt')
                         print('Returning to permanent location!')
+                        weather_tenday_toggle.clear()
+                        title()
+                        with open('gotloc.txt') as flr:
+                            flc = flr.read()
+                            flc = flc.split(':')
+                            print(f'Location: {flc[0]}')
+                        flr.close()
 
                     else:
+                        print('Temporary location not selected!')
                         continue
 
                 elif command_arg.upper() == 'WEATHER -WS':
@@ -172,6 +180,14 @@ class Application():
                     fltemp.seek(0)
                     fltemp.close()
 
+                    weather_tenday_toggle.clear()
+                    title()
+                    with open('temploc.txt') as flc:
+                        contl = flc.read()
+                        contl = contl.split(':')
+                        print(f'Temporary Location: {contl[0]}')
+                    flc.close()
+
                 elif command_arg.upper() == 'LOC -P':
                     confirmation = input('\n\nAre you sure you want to change your permanent location (Y/N)? >> ')
 
@@ -191,6 +207,15 @@ class Application():
 
                             filenew.seek(0)
                             filenew.close()
+
+                            weather_tenday_toggle.clear()
+                            title()
+
+                            with open('gotloc.txt') as flr:
+                                bor = flr.read()
+                                bor = bor.split()
+                                print(f'Location: {bor[0]}')
+                            flr.close()
 
                     elif confirmation.upper() == 'N':
                         print('Exiting location change')
@@ -271,7 +296,7 @@ if __name__ == '__main__':
             content = content.split(':')
             content = content[0]
             file.close()
-        print(f'PLOC: {content}')
+        print(f'Location: {content}')
 
     if os.path.isfile('gotloc.txt'):
         with open('gotloc.txt') as f:
