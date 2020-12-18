@@ -27,7 +27,7 @@ class weatherTenDay:
             print()
 
             ctlr = input('>> ')
-            if ctlr == 'Q':
+            if ctlr.upper() == 'Q':
                 break
             else:
                 continue
