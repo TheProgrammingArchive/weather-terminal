@@ -79,7 +79,7 @@ class weatherTenDay_toggle:
 
     def weather_Details(self):
         clear()
-        print('\n\nWhen asked >> press N for next day and P for previous day, E for more weather info or EXIT to exit\n\n')
+        print('\n\nWhen asked >> press N for next day and P for previous day, E for more weather info or Q to exit\n\n')
         weatherTenDay_toggle.weather_Deails(self)
         listnum = 0
         #title
@@ -99,7 +99,7 @@ class weatherTenDay_toggle:
                     listnum = listnum - 1
                     #title
                     title()
-                    inputs = input(f'Data unavailable after {dates[13]}. You can go back(P) or exit(EXIT)>> ')
+                    inputs = input(f'Data unavailable after {dates[13]}. You can go back(P) or QEXIT)>> ')
                 else:
                     #title
                     title()
@@ -117,7 +117,7 @@ class weatherTenDay_toggle:
                     #title
                     title()
                     listnum = listnum + 1
-                    inputs = input(f'Weather data unavailable before {dates[0]}. You can go forward(N) or exit(EXIT)!>> ')
+                    inputs = input(f'Weather data unavailable before {dates[0]}. You can go forward(N) or QEXIT)!>> ')
                 else:
                     #title
                     title()
@@ -127,7 +127,7 @@ class weatherTenDay_toggle:
                     print('Precipitation Index: ' + avgindex[listnum])
                     print('Wind Details = ' + winddetails[listnum])
                     inputs = input(">>")
-            elif inputs.upper() == 'EXIT':
+            elif inputs.upper() == 'Q':
                 break
 
             elif inputs.upper() == 'E':
