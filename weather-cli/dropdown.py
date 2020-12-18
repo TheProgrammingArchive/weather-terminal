@@ -71,7 +71,7 @@ def get_tendayweather(source):
                     print('Moonset: ' + table_content[7:])
                 i = i + 1
 
-        gochar = input('\n>>')
+        gochar = input('\nEnter to continue and Q to quit>>')
         if gochar.upper() == 'Q':
             break
         else:
