@@ -26,7 +26,7 @@ class weatherTenDay:
 
             print()
 
-            ctlr = input('>> ')
+            ctlr = input('Enter to continue and Q to quit>> ')
             if ctlr.upper() == 'Q':
                 break
             else:
