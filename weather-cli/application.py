@@ -240,7 +240,7 @@ class Application():
 2. settings -- change the way you would like the ten day weather to be displayed
 3. clear() -- clears the screen
 4. weather today -- displays the present weather along with a 10 hour forcast
-5. weather tenday -- displays the weather for the next tendays, type p to go backwards and n to go forwards. type exit to exit the tenday section and return back.
+5. weather tenday -- displays the weather for the next tendays, type P to view the previous day and N to view the next day. Type Q to exit the tenday section and return back.
 6. weather now -- displays the current weather conditions
 7. weather -t -- displays the current temperature
 8. weather -dsc -- displays a short description of the current temperature
