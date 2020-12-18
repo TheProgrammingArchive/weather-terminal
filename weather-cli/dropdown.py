@@ -72,7 +72,7 @@ def get_tendayweather(source):
                 i = i + 1
 
         gochar = input('\n>>')
-        if gochar.lower() == 'q':
+        if gochar.upper() == 'Q':
             break
         else:
             continue
