@@ -99,7 +99,7 @@ class weatherTenDay_toggle:
                     listnum = listnum - 1
                     #title
                     title()
-                    inputs = input(f'Data unavailable after {dates[13]}. You can go back(P) or QEXIT)>> ')
+                    inputs = input(f'Data unavailable after {dates[13]}. You can go back(P) or Q(EXIT)>> ')
                 else:
                     #title
                     title()
@@ -117,7 +117,7 @@ class weatherTenDay_toggle:
                     #title
                     title()
                     listnum = listnum + 1
-                    inputs = input(f'Weather data unavailable before {dates[0]}. You can go forward(N) or QEXIT)!>> ')
+                    inputs = input(f'Weather data unavailable before {dates[0]}. You can go forward(N) or Q(EXIT)!>> ')
                 else:
                     #title
                     title()
