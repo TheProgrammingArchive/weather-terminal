@@ -103,7 +103,7 @@ class weatherTenDay_toggle_dble:
                     listnum = listnum - 1
                     #title
                     title()
-                    inputs = input(f'Data unavailable after {dates[13]}. You can go back(P) or exit(EXIT)>> ')
+                    inputs = input(f'Data unavailable after {dates[13]}. You can go back(P) or Q(EXIT)>> ')
                 else:
                     #title
                     title()
@@ -125,7 +125,7 @@ class weatherTenDay_toggle_dble:
                     #title
                     title()
                     listnum = listnum + 1
-                    inputs = input(f'Weather data unavailable before {dates[0]}. You can go forward(N) or exit(EXIT)!>> ')
+                    inputs = input(f'Weather data unavailable before {dates[0]}. You can go forward(N) or Q(EXIT)!>> ')
                 else:
                     #title
                     title()
