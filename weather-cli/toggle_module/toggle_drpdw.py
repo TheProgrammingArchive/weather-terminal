@@ -89,11 +89,11 @@ def get_tendeyweather(source):
                     uvindexcurrent.append(table_content[8:20])
                 elif (i == 2):
                     # print(table_content)
-                    sunrise.append(table_content)
+                    sunrise.append(table_content[7:])
                 elif (i == 3):
 
                     # print(table_content)
-                    sunset.append(table_content)
+                    sunset.append(table_content[6:])
 
                 elif (i == 4):
                     # print(f'Humidity (Later): {table_content[8:20]}')
@@ -132,8 +132,8 @@ def get_tendaylists(sourcem, listnum):
     print()
     print('Humidity (Currently): ' + humiditycurrent[listnum])
     print('UV Index (Currently): ' + uvindexcurrent[listnum])
-    print(sunrise[listnum])
-    print(sunset[listnum])
+    print('Sunrise: ' + sunrise[listnum])
+    print('Sunset: ' + sunset[listnum])
     print()
     print('Humidity (Later): ' + humiditylater[listnum])
     print('UV Index (Later): ' + uvindexlater[listnum])
