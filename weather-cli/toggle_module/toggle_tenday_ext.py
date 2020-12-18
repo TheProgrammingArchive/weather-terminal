@@ -79,7 +79,7 @@ class weatherTenDay_toggle_dble:
 
     def weather_Details(self):
         clear()
-        print('\n\nWhen asked >> press N for next day and P for previous day, E for more weather info or EXIT to exit\n\n')
+        print('\n\nWhen asked >> press N for next day and P for previous day, E for more weather info or Q to exit\n\n')
         weatherTenDay_toggle_dble.weather_Deails(self)
         listnum = 0
         #title
@@ -139,7 +139,7 @@ class weatherTenDay_toggle_dble:
                     print()
                     toggle_drpdw.get_tendaylists(self.site_source, listnum + 1)
                     inputs = input(">>")
-            elif inputs.upper() == 'EXIT':
+            elif inputs.upper() == 'Q':
                 break
             else:
                 #title
