@@ -28,6 +28,6 @@
 
 ## USAGE:
   You can use this project for your own use alone! If you are going to use this somewhere else, please read our license for our copyright and production claims. In case of using 
-  it is compulsary to provide the link or the names of contributors to this project
+  it is compulsary to provide the link __AND__ the names of contributors to this project
   
   
