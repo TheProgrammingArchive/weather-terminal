@@ -12,14 +12,14 @@
   pip install lxml, run these commands one by one and you should be good to go!
   
 ## CLONING AND RUNNING THE APP:
-  You can clone this project __ONLY FOR PERSONAL USE__! Please refer to the section below or our license page to know what you can or cannot do with the project.
+  You can clone this project __ONLY FOR PERSONAL USE__!
   To clone the project follow the steps:
   Navigate to the directory where you want to clone the project by using 'cd directoryname' (_REMOVE QUOTES_). Once you are in the directory where you want to clone it, run the 
   following command:
   
   __git clone https://github.com/TheProgrammingArchive/weather.com-scraper__, wait for it to get cloned!
   
-  Now without exiting the directory type "cd weather.com-scraper/weather-cli" (_REMOVE QUOTES_), after doing so run: python application.py
+  Now without exiting the directory, type "cd weather.com-scraper/weather-cli" (_REMOVE QUOTES_), after doing so run: python application.py
   This should start the app!
   
 ## INSTALLING FROM PYPI:
