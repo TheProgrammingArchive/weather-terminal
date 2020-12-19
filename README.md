@@ -27,6 +27,7 @@
   
 
 ## USAGE:
-  You can use this project for your own use alone! If you are going to use this somewhere else you __MUST__ give us credits for doing so.
+  You can use this project for your own use alone! If you are going to use this somewhere else, please read our license for our copyright and production claims. In case of using 
+  it is compulsary to provide the link or the names of contributors to this project
   
   
