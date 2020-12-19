@@ -7,8 +7,11 @@
   For this application to work make sure you have pyhton 3.7 or greater added to path. Make sure you have done so by opening cmd and typing 'pip --version' without quotes. If you   get the version info then it means it has been added to your path successfully! If not please refer on how to add py to path. 
   
   Once you make sure it's on your path, install the pre-requisites through the following commands:
-  pip install requests
+  
+  pip install requests 
+  
   pip install bs4
+  
   pip install lxml, run these commands one by one and you should be good to go!
   
 ## CLONING AND RUNNING THE APP:
