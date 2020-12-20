@@ -4,7 +4,7 @@
   This project is made to make reading the weather easier. You can now get all required details on your cli!
   
 ## Requirements:
-  For this application to work make sure you have pyhton 3.7 or greater added to path. Make sure you have done so by opening cmd and typing 'pip --version' without quotes. If you   get the version info then it means it has been added to your path successfully! If not please refer on how to add py to path. 
+  For this application to work make sure you have python 3.7 or greater added to path. Make sure you have done so by opening cmd and typing 'pip --version' without quotes. If you   get the version info then it means it has been added to your path successfully! If not please refer on how to add py to path. 
   
   Once you make sure it's on your path, install the pre-requisites through the following commands:
   
@@ -31,6 +31,6 @@
 
 ## USAGE:
   You can use this project for your own use alone! If you are going to use this somewhere else, please read our license for our copyright and production claims. In case of using 
-  it is compulsary to provide the link __AND__ the names of contributors to this project
+  this project, it is compulsary for the user to provide the link __AND__ the names of contributors to this project.
   
 
