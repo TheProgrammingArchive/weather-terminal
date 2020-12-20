@@ -23,15 +23,15 @@ def get_Link():
     while country == "":
         country = input('Country cannot be empty! Enter your country again: ')
 
-    country_conf = input('Please confirm your country: ')
-    while country_conf == "":
-        country_conf = input('Please confirm your country: ')
+    country_conf = country
+    # while country_conf == "":
+    #     country_conf = input('Please confirm your country: ')
 
-    while (country_conf != country):
-        country = input('Country confirmation did not match! Please enter your country again: ')
-        country_conf = input('Confirm country: ')
-        if (country == country_conf):
-            break
+    # while (country_conf != country):
+    #     country = input('Country confirmation did not match! Please enter your country again: ')
+    #     country_conf = input('Confirm country: ')
+    #     if (country == country_conf):
+    #         break
 
     country_conf = string.capwords(country_conf)
     print(country_conf)
