@@ -5,26 +5,27 @@ from weather_tenday_toggle import weatherTenDay_toggle
 from table import get_tableToday
 from toggle_module import toggle_tenday_ext, toggle_drpdw
 from weather_Tenday import weatherTenDay
+from weathertodayaio import weatherHoury
 import settings
 import importlib
 import os
 import time
 import webbrowser
+import string
 import shutil
-import sys
 
 
 def title():
-    s = '''                 _   _                          _
-                   | | | |                        | (_)
-__      _____  __ _| |_| |__   ___ _ __ ______ ___| |_ 
-\ \ /\ / / _ \/ _` | __| '_ \ / _ \ '__|______/ __| | |
- \ V  V /  __/ (_| | |_| | | |  __/ |        | (__| | |
-  \_/\_/ \___|\__,_|\__|_| |_|\___|_|         \___|_|_|
+    title_content = '''
+                    | | | |                        | (_)
+ __      _____  __ _| |_| |__   ___ _ __ ______ ___| |_ 
+ \ \ /\ / / _ \/ _` | __| '_ \ / _ \ '__|______/ __| | |
+  \ V  V /  __/ (_| | |_| | | |  __/ |        | (__| | |
+   \_/\_/ \___|\__,_|\__|_| |_|\___|_|         \___|_|_|
 
-        '''
-    for line in s.split("\n"):
-        print(line.center(shutil.get_terminal_size().columns))
+                    '''
+    for nnnnn in title_content.split('\n'):
+        print(nnnnn.center(shutil.get_terminal_size().columns)) 
 
 
 class Application():
@@ -101,12 +102,19 @@ class Application():
                         os.remove('temploc.txt')
                         print('Returning to permanent location!')
                         weather_tenday_toggle.clear()
+
                         title()
-                        with open('gotloc.txt') as flr:
-                            flc = flr.read()
-                            flc = flc.split(':')
-                            print(f'Location: {flc[0]}')
-                        flr.close()
+
+                        with open('gotloc.txt') as file:
+                            conr = file.read()
+                            conr = conr.split(':')
+                            conr = conr[1]
+                            conr = conr.replace(' ', '')
+                    
+                            src = f'https://www.weather.com/en-IN/weather/hourbyhour/l/{conr}'
+                            ubiq = weatherHoury(src)
+                            ubiq.weather_atThisHour()
+
 
                     else:
                         print('Temporary location not selected!')
@@ -186,12 +194,18 @@ class Application():
 
                     weather_tenday_toggle.clear()
                     title()
-                    with open('temploc.txt') as flc:
-                        contl = flc.read()
-                        contl = contl.split(':')
-                        print(f'Temporary Location: {contl[0]}')
-                    flc.close()
-
+                    
+                    with open('temploc.txt') as file:
+                        conr = file.read()
+                        conr = conr.split(':')
+                        conr = conr[1]
+                        conr = conr.replace(' ', '')
+                        
+                        src = f'https://www.weather.com/en-IN/weather/hourbyhour/l/{conr}'
+                        ubiq = weatherHoury(src)
+                        print('Temporary Location')
+                        ubiq.weather_atThisHour()
+ 
                 elif command_arg.upper() == 'LOC -P':
                     confirmation = input('\n\nAre you sure you want to change your permanent location (Y/N)? >> ')
 
@@ -215,11 +229,15 @@ class Application():
                             weather_tenday_toggle.clear()
                             title()
 
-                            with open('gotloc.txt') as flr:
-                                bor = flr.read()
-                                bor = bor.split()
-                                print(f'Location: {bor[0]}')
-                            flr.close()
+                            with open('gotloc.txt') as file:
+                                conr = file.read()
+                                conr = conr.split(':')
+                                conr = conr[1]
+                                conr = conr.replace(' ', '')
+                        
+                                src = f'https://www.weather.com/en-IN/weather/hourbyhour/l/{conr}'
+                                ubiq = weatherHoury(src)
+                                ubiq.weather_atThisHour()
 
                     elif confirmation.upper() == 'N':
                         print('Exiting location change')
@@ -293,14 +311,14 @@ if __name__ == '__main__':
     else:
         pass
 
-    if os.path.exists('gotloc.txt') == True:
+    # if os.path.exists('gotloc.txt') == True:
 
-        with open('gotloc.txt') as file:
-            content = file.read()
-            content = content.split(':')
-            content = content[0]
-            file.close()
-        print(f'Location: {content}')
+    #     with open('gotloc.txt') as file:
+    #         content = file.read()
+    #         content = content.split(':')
+    #         content = content[0]
+    #         file.close()
+    #     print(f'Location: {content}')
 
     if os.path.isfile('gotloc.txt'):
         with open('gotloc.txt') as f:
@@ -312,6 +330,15 @@ if __name__ == '__main__':
                 os.remove('gotloc.txt')
 
             else:
+                with open('gotloc.txt') as file:
+                    content = file.read()
+                    content = content.split(':')
+                    content = content[1]
+                    ui_src = f'https://weather.com/en-IN/weather/hourbyhour/l/{content}'
+                    uiprs = weatherHoury(ui_src)
+                    uiprs.weather_atThisHour()
+                file.close()
+
                 newApplication = Application()
                 newApplication.start_application()
         f.close()
@@ -339,7 +366,17 @@ if __name__ == '__main__':
         file.close()
 
         nsApplication.help_startup()
+
+        with open('gotloc.txt') as file:
+                content = file.read()
+                content = content.split(':')
+                content = content[1]
+                ui_src = f'https://weather.com/en-IN/weather/hourbyhour/l/{content}'
+                uiprs = weatherHoury(ui_src)
+                uiprs.weather_atThisHour()
+                file.close()
+
         nsApplication.start_application()
 else:
     raise ImportError
- 
+    
