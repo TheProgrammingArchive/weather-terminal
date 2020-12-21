@@ -77,7 +77,7 @@ class weatherHoury:
 
         weatherHoury.getHourlyweather(self)
         
-        fitnumcolumns = width/16
+        fitnumcolumns = width/20
         intcolumnsfit = int(fitnumcolumns)
         
         fittime = time[0:intcolumnsfit]
