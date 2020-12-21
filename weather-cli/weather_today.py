@@ -17,7 +17,7 @@ class weatherHourly:
 
     def weather_atThisHour(self):
         time_now = self.weather_now.find('h2', class_='DetailsSummary--daypartName--1Mebr').text
-        print(f'Time(Now): {time_now}')
+        print(f'Update as of: {time_now}')
 
         temperature_current = self.weather_now.find('div', class_='DetailsSummary--temperature--3FMlw').text
         print(f'Temperature(Now): {temperature_current}')
@@ -39,7 +39,7 @@ class weatherHourly:
         for reports in self.soup.find_all('details', class_='DaypartDetails--DayPartDetail--3yhtR Disclosure--themeList--uBa5q'):
 
             timeofreport = reports.find('h2', class_='DetailsSummary--daypartName--1Mebr').text
-            print(f"Time: {timeofreport}")
+            print(f"Updated at: {timeofreport}")
 
             temperature_Now = reports.find('div', class_='DetailsSummary--temperature--3FMlw').text
             print(f"Temperature: {temperature_Now}")
