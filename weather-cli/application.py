@@ -24,8 +24,8 @@ def title():
    \_/\_/ \___|\__,_|\__|_| |_|\___|_|         \___|_|_|
 
                     '''
-    for nnnnn in title_content.split('\n'):
-        print(nnnnn.center(shutil.get_terminal_size().columns)) 
+    for shutter_title in title_content.split('\n'):
+        print(shutter_title.center(shutil.get_terminal_size().columns)) 
 
 
 class Application():
