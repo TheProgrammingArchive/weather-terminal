@@ -3,7 +3,7 @@ from dropdown import get_tendayweather
 import weather_tenday_toggle
 from weather_tenday_toggle import weatherTenDay_toggle
 from table import get_tableToday
-from toggle_module import toggle_tenday_ext, toggle_drpdw
+from toggle_module import toggle_tenday_ext, toggle_drpdw, weather_today_toggle
 from weather_Tenday import weatherTenDay
 from weathertodayaio import weatherHoury
 import settings
@@ -36,7 +36,7 @@ class Application():
                     'WEATHER -WS', 'WEATHER -HDU', 'WEATHER -DEW', 'WEATHER -PAR', 'WEATHER -UV', 'WEATHER -VIS',
                     'WEATHER -MNP', 'LOC -P', 'LOC -T', 'LOC -PR', 'HELP']
 
-        print('Type -help or [--h] for help or EXIT to exit!\n\n')
+        print('\nType -help or [--h] for help or EXIT to exit!\n\n')
 
         while True:
             print()
@@ -68,6 +68,7 @@ class Application():
                 prefix_table = f'https://weather.com/en-IN/weather/today/l/{content_value}'
 
                 weather_tdayf = weatherHourly(prefix_hrbr)
+                weather_tdayfd = weather_today_toggle.WeatherToggleHourly(prefix_hrbr)
                 weather_tendayf = weatherTenDay_toggle(prefix_tenday)
 
                 weather_tble = get_tableToday(prefix_table)
@@ -125,7 +126,13 @@ class Application():
                     print(f'{trpt}')
 
                 elif command_arg.upper() == 'WEATHER TODAY':
-                    weather_tdayf.getHourlyweather()
+                    with open('settingspage.txt') as file_hrbr:
+                        content_xrbr = file_hrbr.read()
+                        if content_xrbr == 'ENABLED':
+                            weather_tdayfd.get_togglehrhr()
+
+                        elif content_xrbr == 'DISABLED':
+                            weather_tdayf.getHourlyweather()
 
                 elif command_arg.upper() == 'WEATHER NOW':
                     weather_tdayf.weather_atThisHour()
@@ -173,6 +180,7 @@ class Application():
                     weather_tenday_toggle.clear()
                     title()
                     print(f'Location: {location_content[0]}')
+                    print('\nType -help or [--h] for help or EXIT to exit!\n\n')
 
                 elif command_arg.upper() == 'LOC -T':
                     fltemp = open('temploc.txt', 'w+')
@@ -203,7 +211,8 @@ class Application():
                         
                         src = f'https://www.weather.com/en-IN/weather/hourbyhour/l/{conr}'
                         ubiq = weatherHoury(src)
-                        print('Temporary Location')
+                        loc_view = 'Temporary Location'
+                        print(loc_view.center(shutil.get_terminal_size().columns))
                         ubiq.weather_atThisHour()
  
                 elif command_arg.upper() == 'LOC -P':
