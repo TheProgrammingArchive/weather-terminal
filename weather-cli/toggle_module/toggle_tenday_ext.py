@@ -149,6 +149,3 @@ class weatherTenDay_toggle_dble:
             else:
                 #title
                 inputs = input('>> ')
-
-# rtn = weatherTenDay_toggle('https://weather.com/en-IN/weather/tenday/l/bf01d09009561812f3f95abece23d16e123d8c08fd0b8ec7ffc9215c0154913c')
-# rtn.weather_Details()  
