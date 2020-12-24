@@ -5,6 +5,7 @@ import toggle_module
 from toggle_module import toggle_drpdw, toggle_tenday_ext
 global site_source
 global soup
+import shutil
 import subprocess
 import sys
 from signal import signal, SIGINT
@@ -12,14 +13,16 @@ from sys import exit
 
 
 def title():
-    print('''
-                                                                    | | | |                        | (_)
-                                                 __      _____  __ _| |_| |__   ___ _ __ ______ ___| |_ 
-                                                 \ \ /\ / / _ \/ _` | __| '_ \ / _ \ '__|______/ __| | |
-                                                  \ V  V /  __/ (_| | |_| | | |  __/ |        | (__| | |
-                                                   \_/\_/ \___|\__,_|\__|_| |_|\___|_|         \___|_|_|
+    title_content = '''
+                        | | | |                        | (_)
+     __      _____  __ _| |_| |__   ___ _ __ ______ ___| |_ 
+     \ \ /\ / / _ \/ _` | __| '_ \ / _ \ '__|______/ __| | |
+      \ V  V /  __/ (_| | |_| | | |  __/ |        | (__| | |
+       \_/\_/ \___|\__,_|\__|_| |_|\___|_|         \___|_|_|
 
-        ''')
+                        '''
+    for shutter_title in title_content.split('\n'):
+        print(shutter_title.center(shutil.get_terminal_size().columns))
 
 
 def handler(signal_received, frame):
@@ -79,11 +82,13 @@ class weatherTenDay_toggle_dble:
 
     def weather_Details(self):
         clear()
-        print('\n\nWhen asked >> press N for next day and P for previous day, E for more weather info or Q to exit\n\n')
         weatherTenDay_toggle_dble.weather_Deails(self)
         listnum = 0
         #title
         title()
+
+        print('\n\nWhen asked >> press N for next day and P for previous day, E for more weather info or Q to exit\n\n')
+
         print('Date: ' + dates[listnum])
         print('Temperature: ' + temperatures[listnum])
         print('Description: ' + description[listnum])
