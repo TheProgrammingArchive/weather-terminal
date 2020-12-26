@@ -38,8 +38,8 @@ def help_application():
         '''
         Location change:
             There are primarily 2 location change commands in this app. loc -p and loc -t
-            Loc -p changes your permanent location, this changes every section in the app from the startup menu weather and the weather sections
-            Loc -t changes your location temporarily, this is useful when you want to view another location temporarily
+            Loc -p changes your permanent location, this changes every section in the app from the startup dropdown display and the weather sections
+            Loc -t changes your location temporarily, this is useful when you want to view the weather of another location temporarily
             To know if you're in a temporary location or not just scroll up and you'll see your location somewhere near the title
             If there is a text which says 'Temporary Location', it means you're currently not in the permanent selected location, an alternate way to check is by typing the command --loc, 
             this will tell you if you have permanent location selected or not
@@ -64,7 +64,7 @@ def help_application():
         '''
         Other information:
             Under the weather hourly section, if toggle is enabled and if it's the last hour of the day. The section will display only the particular weather for the next hour and exit the section
-            Since weather.com uses a separate tag for the current weather, you can view it only by typing the command weather now.
+            this is because weather.com uses a separate tag for the current weather, you can view it only by typing the command weather now.
             
             
         Exiting the app:
@@ -80,7 +80,7 @@ def help_application():
         Errors:
             1. Port connection: 
                 If you try to use the app without access to the internet or have a very slow connection, you'll get a port connection error
-                Make sure you're connected to the internet or just wait for sometime for the issue to get resolved
+                Make sure you're connected to the internet or just wait for sometime and the issue will get resolved
                 
             2. File error:
                 If as mentioned in the above section (exiting the app), CTRL-Z ent or CTRL-C can produce errors when used in the loc -p section.
