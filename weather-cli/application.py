@@ -1,5 +1,4 @@
 from weather_today import weatherHourly
-from dropdown import get_tendayweather
 import weather_tenday_toggle
 from weather_tenday_toggle import weatherTenDay_toggle
 from table import get_tableToday
@@ -344,14 +343,7 @@ class Application:
                         continue
 
                 elif command_arg.upper() == 'DETAILED TENDAY':
-                    with open('settingspage.txt') as fr:
-                        contel = fr.read()
-                        if contel == 'ENABLED':
-                            toggle_dtenday.weather_Details()
-
-                        elif contel == 'DISABLED':
-                            get_tendayweather(prefix_tenday)
-
+                    toggle_dtenday.weather_Details()
 
                 elif command_arg.upper() == '-HELP' or command_arg.upper() == '--H':
                     Application.help_app()
