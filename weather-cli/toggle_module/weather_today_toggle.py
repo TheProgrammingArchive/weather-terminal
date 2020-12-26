@@ -87,6 +87,10 @@ class WeatherToggleHourly:
         print(f'Windspeed: {wspeed_content[0]}')
 
         while True:
+            if list_lent == 1:
+                print('\n Weather will be unavailable for 1:00 hrs since this is the last hour of the day!')
+                break
+
             fwd_value = input('>> ')
             if fwd_value.upper() == 'N':
                 clear()

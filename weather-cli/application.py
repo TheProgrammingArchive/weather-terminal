@@ -7,6 +7,7 @@ from toggle_module import toggle_tenday_ext, toggle_drpdw, weather_today_toggle
 from weather_Tenday import weatherTenDay
 from weathertodayaio import weatherHoury
 import settings
+import help_App
 import importlib
 import os
 import time
@@ -25,18 +26,49 @@ def title():
 
                     '''
     for shutter_title in title_content.split('\n'):
-        print(shutter_title.center(shutil.get_terminal_size().columns)) 
+        print(shutter_title.center(shutil.get_terminal_size().columns))
 
 
-class Application():
-    def start_application(self):
+class Application:
+    @staticmethod
+    def help_app():
+        weather_tenday_toggle.clear()
+        title()
+        print('\n')
+        entr = input('Press enter to continue or Q to exit help: ')
+        if entr == 'Q':
+            pass
+
+        elif entr == '':
+            weather_tenday_toggle.clear()
+            title()
+            help_App.help_application()
+            weather_tenday_toggle.clear()
+            title()
+
+            with open('gotloc.txt') as file_erb:
+                content_erb = file_erb.read()
+                content_erb = content_erb.split(':')
+                content_erb = content_erb[1]
+                ui_src_erb = f'https://weather.com/en-IN/weather/hourbyhour/l/{content_erb}'
+                uiprs_erb = weatherHoury(ui_src_erb)
+                uiprs_erb.weather_atThisHour()
+                file.close()
+
+
+            print('\nType -help or [--h] for help and -options or [--o] for options and EXIT to exit!\n\n')
+        else:
+            pass
+
+    @staticmethod
+    def start_application():
 
         keywords = ['--H', '-HELP', 'SETTINGS', 'CLEAR()', 'EXIT', 'WEATHER TODAY', 'WEATHER NOW', 'WEATHER TENDAY',
-                    'DETAILED TENDAY', 'TIME -N', 'DATE -T', 'WEATHER -T', 'WEATHER -DSC', 'WEATHER -PRS',
+                    'DETAILED TENDAY', 'DATE -T', 'WEATHER -T', 'WEATHER -DSC', 'WEATHER -PRS',
                     'WEATHER -WS', 'WEATHER -HDU', 'WEATHER -DEW', 'WEATHER -PAR', 'WEATHER -UV', 'WEATHER -VIS',
-                    'WEATHER -MNP', 'LOC -P', 'LOC -T', 'LOC -PR', 'HELP']
+                    'WEATHER -MNP', 'LOC -P', 'LOC -T', 'LOC -PR', '--LICENSE', '--CONTRIBUTORS', '--CREDITS', '--REQS', '--LOC', '--O', '-OPTIONS', 'WEATHER -TAB']
 
-        print('\nType -help or [--h] for help or EXIT to exit!\n\n')
+        print('\nType -help or [--h] for help and -options or [--o] for options and EXIT to exit!\n\n')
 
         while True:
             print()
@@ -98,6 +130,46 @@ class Application():
                     trpt = weather_tdayf.precip_current()
                     print(f'{trpt}')
 
+                elif command_arg.upper() == 'WEATHER -TAB':
+                    if os.path.isfile('temploc.txt'):
+                        weather_tenday_toggle.clear()
+
+                        title()
+
+                        with open('temploc.txt') as file:
+                            conr = file.read()
+                            conr = conr.split(':')
+                            conr = conr[1]
+                            conr = conr.replace(' ', '')
+
+                            src = f'https://www.weather.com/en-IN/weather/hourbyhour/l/{conr}'
+                            ubiq = weatherHoury(src)
+                            ubiq.weather_atThisHour()
+                            file.close()
+                            print(
+                                '\nType -help or [--h] for help and -options or [--o] for options and EXIT to exit!\n\n')
+
+                    elif not os.path.isfile('temploc.txt'):
+                        weather_tenday_toggle.clear()
+
+                        title()
+
+                        with open('gotloc.txt') as file:
+                            conr = file.read()
+                            conr = conr.split(':')
+                            conr = conr[1]
+                            conr = conr.replace(' ', '')
+
+                            src = f'https://www.weather.com/en-IN/weather/hourbyhour/l/{conr}'
+                            ubiq = weatherHoury(src)
+                            ubiq.weather_atThisHour()
+                            file.close()
+                            print(
+                                '\nType -help or [--h] for help and -options or [--o] for options and EXIT to exit!\n\n')
+
+                elif command_arg.upper() == '-OPTIONS' or command_arg.upper() =='--O':
+                    help_App.options_displ()
+
                 elif command_arg.upper() == "LOC -PR":
                     if os.path.isfile('temploc.txt'):
                         os.remove('temploc.txt')
@@ -111,11 +183,10 @@ class Application():
                             conr = conr.split(':')
                             conr = conr[1]
                             conr = conr.replace(' ', '')
-                    
+
                             src = f'https://www.weather.com/en-IN/weather/hourbyhour/l/{conr}'
                             ubiq = weatherHoury(src)
                             ubiq.weather_atThisHour()
-
 
                     else:
                         print('Temporary location not selected!')
@@ -124,6 +195,22 @@ class Application():
                 elif command_arg.upper() == 'WEATHER -WS':
                     trpt = weather_tdayf.wspeed()
                     print(f'{trpt}')
+
+                elif command_arg.upper() == '--LOC':
+                    if os.path.isfile('temploc.txt'):
+                        with open('temploc.txt') as fln:
+                            frl = fln.read()
+                            frl = frl.split(':')
+                            frl = frl[0]
+                            print(f'Temporary location: {frl}')
+
+                    elif not os.path.isfile('temploc.txt'):
+                        if os.path.isfile('gotloc.txt'):
+                            with open('gotloc.txt') as fln:
+                                frl = fln.read()
+                                frl = frl.split(':')
+                                frl = frl[0]
+                                print(f'Permanent Location: {frl}')
 
                 elif command_arg.upper() == 'WEATHER TODAY':
                     with open('settingspage.txt') as file_hrbr:
@@ -179,8 +266,12 @@ class Application():
                 elif command_arg.upper() == 'CLEAR()':
                     weather_tenday_toggle.clear()
                     title()
-                    print(f'Location: {location_content[0]}')
-                    print('\nType -help or [--h] for help or EXIT to exit!\n\n')
+                    if os.path.isfile('temploc.txt'):
+                        print(f'Temporary location: {location_content[0]}')
+
+                    else:
+                        print(f'Location: {location_content[0]}')
+                    print('\nType -help or [--h] for help and -options or [--o] for options and EXIT to exit!\n\n')
 
                 elif command_arg.upper() == 'LOC -T':
                     fltemp = open('temploc.txt', 'w+')
@@ -202,19 +293,19 @@ class Application():
 
                     weather_tenday_toggle.clear()
                     title()
-                    
+
                     with open('temploc.txt') as file:
                         conr = file.read()
                         conr = conr.split(':')
                         conr = conr[1]
                         conr = conr.replace(' ', '')
-                        
+
                         src = f'https://www.weather.com/en-IN/weather/hourbyhour/l/{conr}'
                         ubiq = weatherHoury(src)
                         loc_view = 'Temporary Location'
                         print(loc_view.center(shutil.get_terminal_size().columns))
                         ubiq.weather_atThisHour()
- 
+
                 elif command_arg.upper() == 'LOC -P':
                     confirmation = input('\n\nAre you sure you want to change your permanent location (Y/N)? >> ')
 
@@ -243,7 +334,7 @@ class Application():
                                 conr = conr.split(':')
                                 conr = conr[1]
                                 conr = conr.replace(' ', '')
-                        
+
                                 src = f'https://www.weather.com/en-IN/weather/hourbyhour/l/{conr}'
                                 ubiq = weatherHoury(src)
                                 ubiq.weather_atThisHour()
@@ -264,31 +355,15 @@ class Application():
                         elif contel == 'DISABLED':
                             get_tendayweather(prefix_tenday)
 
-        
+
                 elif command_arg.upper() == '-HELP' or command_arg.upper() == '--H':
-                    print('''The list of commands and their functions:
-1. help --  displays this page
-2. settings -- change the way you would like the ten day weather to be displayed
-3. clear() -- clears the screen
-4. weather today -- displays the present weather along with a 10 hour forcast
-5. weather tenday -- displays the weather for the next tendays, type P to view the previous day and N to view the next day. Type Q to exit the tenday section and return back.
-6. weather now -- displays the current weather conditions
-7. weather -t -- displays the current temperature
-8. weather -dsc -- displays a short description of the current temperature
-9. weather -prs -- displays the current precipitation
-10. weather -ws -- displays the current wind speed
-11. weather -hdu -- displays the current amount of humidity
-12. weather -dew -- displays the current dew point
-13. weather -par -- displays the current atmospheric pressure
-14. weather -uv -- displays the current ultraviolet ray index(UV INDEX)
-15. weather -mnp -- displays the current moon phase
-16. date -t -- displays the date at which the weather forcast was reported''')
+                    Application.help_app()
 
                 elif command_arg.upper() == '':
                     pass
 
                 elif command_arg.upper() == 'EXIT':
-                    if os.path.isfile('temploc.txt') == True:
+                    if os.path.isfile('temploc.txt'):
                         os.remove('temploc.txt')
 
                     time.sleep(1.5)
@@ -306,9 +381,6 @@ class Application():
     def help_fs(self):
         time.sleep(3)
         print('Your location details have been setup successfully!\n\n')
-
-    def help_startup(self):
-        pass
 
 
 if __name__ == '__main__':
@@ -374,18 +446,19 @@ if __name__ == '__main__':
 
         file.close()
 
-        nsApplication.help_startup()
+        nsApplication.help_app()
 
         with open('gotloc.txt') as file:
-                content = file.read()
-                content = content.split(':')
-                content = content[1]
-                ui_src = f'https://weather.com/en-IN/weather/hourbyhour/l/{content}'
-                uiprs = weatherHoury(ui_src)
-                uiprs.weather_atThisHour()
-                file.close()
+            content = file.read()
+            content = content.split(':')
+            content = content[1]
+            ui_src = f'https://weather.com/en-IN/weather/hourbyhour/l/{content}'
+            uiprs = weatherHoury(ui_src)
+            uiprs.weather_atThisHour()
+            file.close()
 
         nsApplication.start_application()
 else:
-    raise ImportError
- 
+    raise (
+        ImportError
+    )
