@@ -78,7 +78,7 @@ def help_application():
         '''
         Errors:
             1. Port connection: 
-                If you try to use the app without access to the internet or have a very slow connection. Sometimes you'll get a port connection error
+                If you try to use the app without access to the internet or have a very slow connection, you'll get a port connection error
                 Make sure you're connected to the internet or just wait for sometime for the issue to get resolved
                 
             2. File error:
