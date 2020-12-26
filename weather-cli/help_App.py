@@ -93,15 +93,6 @@ def help_application():
         '''
     )
 
-    _ = input('Press enter to read more >> ')
-
-    print(
-        '''
-        PLR Commands:
-            These commands include -license, -credits, -contributors, --reqs
-        '''
-    )
-
 def options_displ():
     print(
         '''
