@@ -16,6 +16,7 @@ def help_application():
         Command line modifications:
             When in the MAIN command line you will see a > which denotes an input suggestion. Here you can enter any command from the list below!
             When in sections like weather ten day or weather today, you will see a >> which means you are in the terminal for that particular weather section.
+            The toggle feature can change the way the input method works
         '''
     )
 
@@ -25,7 +26,7 @@ def help_application():
         '''
         Settings:
             This app currently has a toggle feature, as explained in the Command line modifications section above.
-            Toggle is helps to change the way the day/hour navigation system works under the weather ten day and weather today sections.
+            Toggle helps to change the way the day/hour navigation system works under the weather ten day and weather today sections.
             If you have settings toggle enabled you can navigate using the letter P(Previous hr/day), N(Next hr/day), E(Extended info), Q(exit to main cli).
             If you have settings disabled then you can navigate using Enter(next day) or Q(exit to main cli).
         '''
