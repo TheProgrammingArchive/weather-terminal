@@ -112,9 +112,6 @@ class Application:
                     settings_content = settings.settings_page()
                     print(f'Toggle is now: {settings_content}')
 
-                elif command_arg.upper() == 'TIME -N':
-                    weather_tendayf.timeof_report()
-
                 elif command_arg.upper() == 'DATE -T':
                     weather_tdayf.getdateofreport()
 
