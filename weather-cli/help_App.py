@@ -92,6 +92,8 @@ def help_application():
     
         '''
     )
+    
+    _ = input('Press enter to exit help >> ')
 
 def options_displ():
     print(
