@@ -20,7 +20,7 @@ def title():
  \ \ /\ / / _ \/ _` | __| '_ \ / _ \ '__|______| __/ _ \ '__| '_ ` _ \| | '_ \ / _` | |
   \ V  V /  __/ (_| | |_| | | |  __/ |         | ||  __/ |  | | | | | | | | | | (_| | |
    \_/\_/ \___|\__,_|\__|_| |_|\___|_|          \__\___|_|  |_| |_| |_|_|_| |_|\__,_|_|
-                                                                                       
+
                         '''
     for shutter_title in title_content.split('\n'):
         print(shutter_title.center(shutil.get_terminal_size().columns))
@@ -105,11 +105,11 @@ class weatherTenDay_toggle_dble:
                 clear()
                 length = len(dates)
                 listnum = listnum + 1
-                if listnum > 11:
+                if listnum > 12:
                     listnum = listnum - 1
                     #title
                     title()
-                    inputs = input(f'Data unavailable after {dates[11]}. You can go back(P) or Q(EXIT)>> ')
+                    inputs = input(f'Data unavailable after {dates[13]}. You can go back(P) or Q(EXIT)>> ')
                 else:
                     #title
                     title()
