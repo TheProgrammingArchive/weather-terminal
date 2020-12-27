@@ -4,6 +4,8 @@ def help_application():
         Startup:
             When you first start up the app, it will ask you for your country and location. This is stored permanently and can be changed in the future.
             This system helps to reduce time when logging in to check the current weather
+	
+	NOTE:You can view all the commands by entering --o or -options in the terminal. Use -help only when needing assistance with the app.
         '''
     )
     _ = input('Press enter to read more >> ')
@@ -21,8 +23,8 @@ def help_application():
     print(
         '''
         Settings:
-            This app currently has a toggle feature, as explained in the Command line modifications section above.
-            Toggle is helps to change the way the day/hour navigation system works under the weather ten day and weather today sections.
+            This app currently has a toggle feature which is enabled by default and can be changed later.
+            Toggle helps to change the way the day/hour navigation system works under the weather ten day and weather today sections.
             If you have settings toggle enabled you can navigate using the letter P(Previous hr/day), N(Next hr/day), E(Extended info), Q(exit to main cli).
             If you have settings disabled then you can navigate using Enter(next day) or Q(exit to main cli).
         '''
@@ -36,7 +38,7 @@ def help_application():
             There are primarily 2 location change commands in this app. loc -p and loc -t
             Loc -p changes your permanent location, this changes every section in the app from the startup menu weather and the weather sections
             Loc -t changes your location temporarily, this is useful when you want to view another location temporarily
-            To know if you're in a temporary location or not just scroll up and you'll see your location somewhere near the title
+            To know if you're in a temporary location or not just scroll up and you'll see your location near the title
             If there is a text which says 'Temporary Location', it means you're currently not in the permanent selected location, an alternate way to check is by typing the command --loc, 
             this will tell you if you have permanent location selected or not
             
@@ -49,7 +51,7 @@ def help_application():
     print(
         '''
         Title screen weather:
-            When you load up the app, you will usually see a dropdown box which displays the hourly weather. This box is dynamic and the amount of information changes according to the size of your terminal.
+            When you load up the app, you will see a dropdown box which displays the hourly weather. This box is dynamic and the amount of information changes according to the size of your terminal.
             It is recommended to have your terminal on full screen or at least extended beyond the default size.
         '''
     )
@@ -79,7 +81,7 @@ def help_application():
                 Make sure you're connected to the internet or just wait for sometime for the issue to get resolved
                 
             2. File error:
-                If as mentioned in the above section (exiting the app), CTRL-Z ent or CTRL-C can produce errors when used in the loc -p section.
+                As mentioned in the above section (exiting the app), CTRL-Z ent or CTRL-C can produce errors when used in the loc -p section.
                 When this occurs the app will close automatically and the next time you open it, the app will be reset meaning that you'd have to enter your permanent location again.
                 Other than that there's no major issue using CTRL-Z ent or CTRL-C
                 
