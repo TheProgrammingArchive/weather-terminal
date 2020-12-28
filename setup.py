@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="weather-terminal", # Replace with your own username
-    version="1.2.0",
+    version="1.2.1",
     author="TheProgrammingArchive",
     author_email="TheProgrammingArchive@gmail.com",
     license="MIT",
