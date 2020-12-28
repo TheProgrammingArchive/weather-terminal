@@ -13,7 +13,6 @@ setup(
    author_email='TheProgrammingArchive@gmail.com',
    url="https://github.com/TheProgrammingArchive/weather-terminal",
    contributors="TheProgrammingArchive, memerememe",
-   github_url = "https://github.com/TheProgrammingArchive/weather-terminal/",
    packages=['weather-terminal'],  #same as name
    install_requires=['bs4', 'lxml', 'requests', 'art', 'tableprint'], #external packages as dependencies
 )
