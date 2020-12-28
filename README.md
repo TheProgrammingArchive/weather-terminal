@@ -53,4 +53,3 @@
   Run pip install weather-terminal.
 
 
-
