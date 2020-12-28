@@ -51,3 +51,4 @@
   
 ## INSTALLING FROM PYPI:
   Run pip install weather-terminal.
+ 
