@@ -14,9 +14,9 @@
   Navigate to the directory where you want to clone the project by using 'cd directoryname' (_REMOVE QUOTES_). Once you are in the directory where you want to clone it, run the 
   following command:
   
-  __git clone https://github.com/TheProgrammingArchive/weather.com-scraper__, wait for it to get cloned!
+  __git clone https://github.com/TheProgrammingArchive/weather-terminal__, wait for it to get cloned!
   
-  Now without exiting the directory, type "cd weather.com-scraper/weather-cli" (_REMOVE QUOTES_), after doing so run: python application.py
+  Now without exiting the directory, type "cd weather-terminal/weather-terminal" (_REMOVE QUOTES_), after doing so run: python application.py
   This should start the app!
   
 ## Command list:
