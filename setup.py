@@ -8,6 +8,7 @@ setuptools.setup(
     version="1.2.0",
     author="TheProgrammingArchive",
     author_email="TheProgrammingArchive@gmail.com",
+    license="MIT",
     description="terminalWeather",
     long_description=long_description,
     long_description_content_type="text/markdown",
