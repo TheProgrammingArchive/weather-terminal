@@ -11,7 +11,7 @@ setup(
    long_description=long_description,
    author='TheProgrammingArchive',
    author_email='TheProgrammingArchive@gmail.com',
-   url="",
+   url="https://github.com/TheProgrammingArchive/weather-terminal",
    contributors="TheProgrammingArchive, memerememe",
    github_url = "https://github.com/TheProgrammingArchive/weather-terminal/",
    packages=['weather-terminal'],  #same as name
