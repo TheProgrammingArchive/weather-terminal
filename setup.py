@@ -8,7 +8,7 @@ setuptools.setup(
     version="1.0.0",
     author="TheProgrammingArchive",
     author_email="TheProgrammingArchive@gmail.com",
-    description="Get daily weather on your cli.",
+    description="cliWeather",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/TheProgrammingArchive/weather-terminal",
