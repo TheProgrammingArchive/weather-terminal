@@ -1,18 +1,17 @@
-from setuptools import setup
+import setuptools
 
-with open("README.md", 'r') as f:
-    long_description = f.read()
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
 
-setup(
-   name='weather-terminal',
-   version='1.0',
-   description='Daily weather on your temrinal!',
-   license="MIT",
-   long_description=long_description,
-   author='TheProgrammingArchive',
-   author_email='TheProgrammingArchive@gmail.com',
-   url="https://github.com/TheProgrammingArchive/weather-terminal",
-   contributors="TheProgrammingArchive, memerememe",
-   packages=['weather-terminal'],  #same as name
-   install_requires=['bs4', 'lxml', 'requests', 'art', 'tableprint'], #external packages as dependencies
+setuptools.setup(
+    name="weather-terminal", # Replace with your own username
+    version="1.0.0",
+    author="TheProgrammingArchive",
+    author_email="TheProgrammingArchive@gmail.com",
+    description="Get daily weather on your cli.",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/TheProgrammingArchive/weather-terminal",
+    packages=setuptools.find_packages(),
+    python_requires='>=3.6',
 )
