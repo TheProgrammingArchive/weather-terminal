@@ -137,7 +137,7 @@ def get_tendaylists(sourcem, listnum):
     print()
     print('Humidity (Later): ' + humiditylater[listnum])
     print('UV Index (Later): ' + uvindexlater[listnum])
-    print('Moonrise: ' + moonrise[listnum-1])
-    print('Moonset: ' + moonset[listnum-1])
+    print('Moonrise: ' + moonrise[listnum])
+    print('Moonset: ' + moonset[listnum])
     print()
 
