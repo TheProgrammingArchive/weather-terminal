@@ -37,7 +37,14 @@ class Application:
         print('\n')
         entr = input('Press enter for help or Q to exit help: ')
         if entr == 'Q':
-            pass
+            with open('gotloc.txt') as file_erb:
+                content_erb = file_erb.read()
+                content_erb = content_erb.split(':')
+                content_erb = content_erb[1]
+                ui_src_erb = f'https://weather.com/en-IN/weather/hourbyhour/l/{content_erb}'
+                uiprs_erb = weatherHoury(ui_src_erb)
+                uiprs_erb.weather_atThisHour()
+                file.close()
 
         elif entr == '':
             weather_tenday_toggle.clear()
@@ -57,8 +64,16 @@ class Application:
 
 
             print('\nType -help or [--h] for help and -options or [--o] for options and EXIT to exit!\n\n')
+
         else:
-            pass
+            with open('gotloc.txt') as file_erb:
+                content_erb = file_erb.read()
+                content_erb = content_erb.split(':')
+                content_erb = content_erb[1]
+                ui_src_erb = f'https://weather.com/en-IN/weather/hourbyhour/l/{content_erb}'
+                uiprs_erb = weatherHoury(ui_src_erb)
+                uiprs_erb.weather_atThisHour()
+                file.close()
 
     @staticmethod
     def start_application():
@@ -435,8 +450,6 @@ if __name__ == '__main__':
         file.write(f'{location_Get}: {x}')
 
         file.close()
-
-        nsApplication.help_app()
 
         with open('gotloc.txt') as file:
             content = file.read()

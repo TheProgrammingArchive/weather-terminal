@@ -1,3 +1,40 @@
+def options_displ():
+    print(
+        '''
+        weather now: Displays the current weather
+        weather today: Displays the weather for this day
+        weather tenday: Displays weather for next ten days
+        detailed tenday: Displays ten day weather with extended info
+        
+        weather -t: Displays current temperature
+        weather -dew: Displays cloud dew point currently
+        weather -prs: Displays precipitation percentage currently
+        weather -par: Displays current atmospheric pressure (bar)
+        weather -mnp: Displays moon phase
+        weather -ws: Displays current wind speed and direction
+        weather -hdu: Displays current humidity percentage 
+        weather -vis: Displays current visibility (km)
+        weather -uv: Displays current UV index out of 10 (0 - Minimum, 10 - Maximum)
+        weather -dsc: Displays current weather description
+        weather -tab: Displays startup table again
+        
+        --h or -help: Displays help page
+        --o or -options: Displays options(current) page
+        
+        clear(): clear screen
+        loc -p: Change permanent location
+        loc -t: Change temporary location
+        loc -pr: Return to permanent location
+        --loc: View if location is permanent or temporary
+        
+        settings: Turn toggle on or off
+        exit: Exit application
+        
+        '''
+    )
+
+    _ = input('Press enter to continue >> ')
+
 def help_application():
     print(
         '''
@@ -5,7 +42,7 @@ def help_application():
             When you first start up the app, it will ask you for your country and location. This is stored permanently and can be changed in the future.
             This system helps to reduce time when logging in to check the current weather
 	
-	NOTE:You can view all the commands by entering --o or -options in the terminal. Use -help only when needing assistance with the app.
+	    NOTE:You can view all the commands by entering --o or -options in the terminal. Use -help only when needing assistance with the app.
         '''
     )
     _ = input('Press enter to read more >> ')
@@ -94,37 +131,3 @@ def help_application():
     
     _ = input('Press enter to exit help >> ')
 
-def options_displ():
-    print(
-        '''
-        weather now: Displays the current weather
-        weather today: Displays the weather for this day
-        weather tenday: Displays weather for next ten days
-        detailed tenday: Displays ten day weather with extended info
-        
-        weather -t: Displays current temperature
-        weather -dew: Displays cloud dew point currently
-        weather -prs: Displays precipitation percentage currently
-        weather -par: Displays current atmospheric pressure (bar)
-        weather -mnp: Displays moon phase
-        weather -ws: Displays current wind speed and direction
-        weather -hdu: Displays current humidity percentage 
-        weather -vis: Displays current visibility (km)
-        weather -uv: Displays current UV index out of 10 (0 - Minimum, 10 - Maximum)
-        weather -dsc: Displays current weather description
-        weather -tab: Displays startup table again
-        
-        --h or -help: Displays help page
-        --o or -options: Displays options(current) page
-        
-        clear(): clear screen
-        loc -p: Change permanent location
-        loc -t: Change temporary location
-        loc -pr: Return to permanent location
-        --loc: View if location is permanent or temporary
-        
-        settings: Turn toggle on or off
-        exit: Exit application
-        
-        '''
-    )
