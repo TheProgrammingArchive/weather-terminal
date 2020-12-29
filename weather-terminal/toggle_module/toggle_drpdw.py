@@ -137,7 +137,28 @@ def get_tendaylists(sourcem, listnum):
     print()
     print('Humidity (Later): ' + humiditylater[listnum])
     print('UV Index (Later): ' + uvindexlater[listnum])
-    print('Moonrise: ' + moonrise[listnum])
-    print('Moonset: ' + moonset[listnum])
+
+    src = requests.get(sourcem).text
+
+    soup = BeautifulSoup(src, features='lxml')
+    time = soup.find('div', class_='DailyForecast--timestamp--iI022')
+    time = time.text
+    time = time[6:11]
+
+    time = time.replace(':', '.')
+
+    # print(time)
+
+    time = time.replace(':', '.')
+
+    time = float(time)
+
+    if (time >= 15.21):
+        print('Moonrise: ' + moonrise[listnum-1])
+        print('Moonset: ' + moonset[listnum-1])
+
+    else:
+        print('Moonrise: ' + moonrise[listnum])
+        print('Moonset: ' + moonset[listnum])
     print()
 
