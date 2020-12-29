@@ -48,8 +48,5 @@
         
   settings: Turn toggle on or off
    exit: Exit application
-  
-## INSTALLING FROM PYPI:
-  Run pip install weather-terminal.
 
 
