@@ -20,33 +20,32 @@
   This should start the app!
   
 ## Command list:
-  weather now: Displays the current weather
-  weather today: Displays the weather for this day
-  weather tenday: Displays weather for next ten days
-  detailed tenday: Displays ten day weather with extended info
+  weather now: Displays the current weather<br/>
+  weather today: Displays the weather for this day<br/>
+  weather tenday: Displays weather for next ten days<br/>
+  detailed tenday: Displays ten day weather with extended info<br/>
         
-  weather -t: Displays current temperature
-  weather -dew: Displays cloud dew point currently
-  weather -prs: Displays precipitation percentage currently
-  weather -par: Displays current atmospheric pressure (bar)
-  weather -mnp: Displays moon phase
-  weather -ws: Displays current wind speed and direction
-  weather -hdu: Displays current humidity percentage 
-  weather -vis: Displays current visibility (km)
-  weather -uv: Displays current UV index out of 10 (0 - Minimum, 10 - Maximum)
-  weather -dsc: Displays current weather description
-  weather -tab: Displays startup table again
+  weather -t: Displays current temperature<br/>
+  weather -dew: Displays cloud dew point currently<br/>
+  weather -prs: Displays precipitation percentage currently<br/>
+  weather -par: Displays current atmospheric pressure (bar)<br/>
+  weather -mnp: Displays moon phase<br/>
+  weather -ws: Displays current wind speed and direction<br/>
+  weather -hdu: Displays current humidity percentage <br/>
+  weather -vis: Displays current visibility (km)<br/>
+  weather -uv: Displays current UV index out of 10 (0 - Minimum, 10 - Maximum)<br/>
+  weather -dsc: Displays current weather description<br/>
+  weather -tab: Displays startup table again<br/>
+  --h or -help: Displays help page<br/>
+  --o or -options: Displays options(current) page<br/>
         
-  --h or -help: Displays help page
-  --o or -options: Displays options(current) page
+  clear(): clear screen<br/>
+  loc -p: Change permanent location<br/>
+  loc -t: Change temporary location<br/>
+  loc -pr: Return to permanent location<br/>
+  --loc: View if location is permanent or temporary<br/>
         
-  clear(): clear screen
-  loc -p: Change permanent location
-  loc -t: Change temporary location
-  loc -pr: Return to permanent location
-  --loc: View if location is permanent or temporary
-        
-  settings: Turn toggle on or off
-   exit: Exit application
+  settings: Turn toggle (for weather tenday and weather today) on or off<br/>
+  exit: Exit application
 
 
