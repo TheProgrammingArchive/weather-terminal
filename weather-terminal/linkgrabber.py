@@ -108,7 +108,7 @@ def get_Link():
 
     while True:
         try:
-            optionoflocation = int(input("Enter your option with the correspoding number to the location and code: "))
+            optionoflocation = int(input("Enter the single digit number before your location (eg: 1): "))
             while True:
                 if optionoflocation > i or optionoflocation <= 0:
                     raise ValueError
