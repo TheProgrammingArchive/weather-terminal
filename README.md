@@ -1,5 +1,10 @@
 # weather.com-scraper
 
+## DISCLAIMER:
+  THE PROJECT IS CURRENTLY UNDER MAINTANENCE DUE TO A WEBSITE UPDATE FROM OUR SOURCE. PLEASE WAIT FOR A FEW DAYS TILL WE PATCH THE PROBLEM WITH STABLE RELEASE 1.3
+  
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 ## About the project:
   Get daily weather from your cli!
   
