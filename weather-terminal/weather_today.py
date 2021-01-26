@@ -22,13 +22,15 @@ class weatherHourly:
         temperature_current = self.weather_now.find('div', class_='DetailsSummary--temperature--3FMlw').text
         print(f'Temperature(Now): {temperature_current}')
 
-        weatherdesc_current = self.weather_now.find('div', class_='DetailsSummary--condition--mqdxh').text
+        weatherdesc_current = self.weather_now.find('span', class_='DetailsSummary--extendedData--aaFeV').text
         print(f'Weather Description(Now): {weatherdesc_current}')
 
         precipindex_current = self.weather_now.find('div', class_='DetailsSummary--precip--2ARnx').text
+        precipindex_current = precipindex_current.replace('Rain', '')
         print(f'Precipitation Index(Now): {precipindex_current}')
 
         windsdp_current = self.weather_now.find('div', class_='DetailsSummary--wind--Cv4BH DetailsSummary--extendedData--aaFeV').text
+        windsdp_current = windsdp_current.replace('Wind', '')
         print(f'Wind Speed: {windsdp_current}')
 
     def getdateofreport(self):
@@ -44,13 +46,15 @@ class weatherHourly:
             temperature_Now = reports.find('div', class_='DetailsSummary--temperature--3FMlw').text
             print(f"Temperature: {temperature_Now}")
 
-            weather_description = reports.find('div', class_='DetailsSummary--condition--mqdxh').text
+            weather_description = reports.find('span', class_='DetailsSummary--extendedData--aaFeV').text
             print(f"Description: {weather_description}")
 
             precip_index = reports.find('div', class_='DetailsSummary--precip--2ARnx').text
+            precip_index = precip_index.replace('Rain', '')
             print(f"Precipitation Index: {precip_index}")
 
             wind_speed = reports.find('div', class_='DetailsSummary--wind--Cv4BH DetailsSummary--extendedData--aaFeV').text
+            wind_speed = wind_speed.replace('Wind', '')
             print(f"Wind speed: {wind_speed}")
 
             print('\n\n----------------------------------------------------------------------------------------\n')
@@ -65,7 +69,7 @@ class weatherHourly:
         return (f'Temperature(Now): {temperature_crr}')
 
     def weather_desc(self):
-        weatherdesc_crr = self.weather_now.find('div', class_='DetailsSummary--condition--mqdxh').text
+        weatherdesc_crr = self.weather_now.find('span', class_='DetailsSummary--extendedData--aaFeV').text
         return (f'Weather Description(Now): {weatherdesc_crr}')
 
     def precip_current(self):
@@ -74,6 +78,7 @@ class weatherHourly:
 
     def wspeed(self):
         windsdp_current = self.weather_now.find('div', class_='DetailsSummary--wind--Cv4BH DetailsSummary--extendedData--aaFeV').text
+        windsdp_current = windsdp_current.replace('Wind', '')
         return (f'Wind Speed: {windsdp_current}')
 
 # rvx = weatherHourly('https://weather.com/en-IN/weather/hourbyhour/l/7f4609db5007684b5c20c12f0d71f3d95d207282ec1d8361f10670468549c54f')

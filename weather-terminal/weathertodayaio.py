@@ -31,13 +31,15 @@ class weatherHoury:
             temperature_Now = reports.find('div', class_='DetailsSummary--temperature--3FMlw').text
             #print(f"Temperature: {temperature_Now}")
 
-            weather_description = reports.find('div', class_='DetailsSummary--condition--mqdxh').text
+            weather_description = reports.find('span', class_='DetailsSummary--extendedData--aaFeV').text
             #print(f"Description: {weather_description}")
 
             precip_index = reports.find('div', class_='DetailsSummary--precip--2ARnx').text
+            precip_index = precip_index.replace('Rain', '')
             #print(f"Precipitation Index: {precip_index}")
 
             wind_speed = reports.find('div', class_='DetailsSummary--wind--Cv4BH DetailsSummary--extendedData--aaFeV').text
+            wind_speed = wind_speed.replace('Wind', '')
             #print(f"Wind speed: {wind_speed}")
             #print('\n\n----------------------------------------------------------------------------------------\n',end='|')
             time.append(timeofreport)

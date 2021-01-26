@@ -140,6 +140,7 @@ class Application:
 
                 elif command_arg.upper() == 'WEATHER -PRS':
                     trpt = weather_tdayf.precip_current()
+                    trpt = trpt.replace('Rain', '')
                     print(f'{trpt}')
 
                 elif command_arg.upper() == 'WEATHER -TAB':
@@ -252,27 +253,27 @@ class Application:
 
                 elif command_arg.upper() == 'WEATHER -DEW':
                     dew = weather_tble[3]
-                    dew = dew[9:]
+                    dew = dew.replace('Dew Point', '')
                     print(f'Dew point: {dew}')
 
                 elif command_arg.upper() == 'WEATHER -PAR':
                     prs = weather_tble[4]
-                    prs = prs[8:]
+                    prs = prs.replace('PressureArrow Up', '').replace('Pressure', '')
                     print(f'Atm pressure: {prs}')
 
                 elif command_arg.upper() == 'WEATHER -UV':
                     uv = weather_tble[5]
-                    uv = uv[8:]
+                    uv = uv.replace('UV Index', '').replace('UV Level', '')
                     print(f'UV Index: {uv}')
 
                 elif command_arg.upper() == 'WEATHER -VIS':
                     vis = weather_tble[6]
-                    vis = vis[10:]
+                    vis = vis.replace('Visibility', '')
                     print(f'Visibility: {vis}')
 
                 elif command_arg.upper() == 'WEATHER -MNP':
                     mnp = weather_tble[7]
-                    mnp = mnp[10:]
+                    mnp = mnp.replace('Moon Phase', '')
                     print(f'Moon phase: {mnp}')
 
                 elif command_arg.upper() == 'CLEAR()':

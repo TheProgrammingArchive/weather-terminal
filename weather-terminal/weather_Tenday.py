@@ -15,18 +15,26 @@ class weatherTenDay:
         for weather_Report in self.soup.find_all('summary', class_='Disclosure--Summary--AvowU DaypartDetails--Summary--2nJx1 Disclosure--hideBorderOnSummaryOpen--LEvZQ'):
             dateof_Report = weather_Report.find('h2', class_='DetailsSummary--daypartName--1Mebr').text
             print(f"Date: {dateof_Report}")
+
             temperature_day = weather_Report.find('div', class_='DetailsSummary--temperature--3FMlw').text
             print(f"Temperature: {temperature_day}")
-            weather_Description = weather_Report.find('div', class_='DetailsSummary--condition--mqdxh').text
-            print(f"Description: {weather_Description}")
+
+            weather_Description = weather_Report.find('span', class_='DetailsSummary--extendedData--aaFeV').text
+            print(f'Weather description: {weather_Description}')
+
             avg_precipindex = weather_Report.find('div', class_='DetailsSummary--precip--2ARnx').text
-            print(f"Precipitation Index: {avg_precipindex}")
+            avg_precipindex = avg_precipindex.replace('Rain', '')
+            print(f'Precipitation index: {avg_precipindex}')
+
             wind_Details = weather_Report.find('div', class_='DetailsSummary--wind--Cv4BH DetailsSummary--extendedData--aaFeV').text
-            print(f"Wind Details = {wind_Details}")
+            wind_Details = wind_Details.replace('Wind', '')
+            print(f"Wind Details: {wind_Details}")
 
             print()
 
             ctlr = input('Enter to continue and Q to quit>> ')
+            print()
+            
             if ctlr.upper() == 'Q':
                 break
             else:

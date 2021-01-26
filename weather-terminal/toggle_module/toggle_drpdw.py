@@ -82,33 +82,49 @@ def get_tendeyweather(source):
                 table_content = table_content.text
                 if (i == 0):
                     # print(f'Humidity (Currently): {table_content[8:11]}')
-                    humiditycurrent.append(table_content[8:11])
+                    table_content = table_content.replace('Humidity', '')
+                    humiditycurrent.append(table_content)
 
                 elif (i == 1):
                     # print(f'UV Index (Currently): {table_content[8:20]}')
-                    uvindexcurrent.append(table_content[8:20])
+                    table_content = table_content.replace('UV LevelUV Index', '')
+                    uvindexcurrent.append(table_content)
+
                 elif (i == 2):
                     # print(table_content)
-                    sunrise.append(table_content[7:])
-                elif (i == 3):
+                    table_content = table_content.replace('Sun RiseSunrise', '')
+                    sunrise.append(table_content)
 
+                elif (i == 3):
                     # print(table_content)
-                    sunset.append(table_content[6:])
+                    table_content = table_content.replace('Sunset', '')
+                    sunset.append(table_content)
 
                 elif (i == 4):
                     # print(f'Humidity (Later): {table_content[8:20]}')
-                    humiditylater.append(table_content[8:20])
+                    table_content = table_content.replace('Humidity', '')
+                    humiditylater.append(table_content)
 
                 elif (i == 5):
                     # print(f'UV Index (Later): {table_content[8:20]}')
-                    uvindexlater.append(table_content[8:20])
+                    table_content = table_content.replace('UV LevelUV Index', '')
+                    uvindexlater.append(table_content)
 
                 elif (i == 6):
                     # print(table_content)
-                    moonrise.append(table_content[8:])
+                    table_content = table_content.replace('Moon RiseMoonrise', '')
+                    table_content = table_content[0:5]
+                    
+                    if table_content == '--Moo':
+                        moonrise.append('--')
+
+                    else:
+                        moonrise.append(table_content)
+
                 elif (i == 7):
                     # print(table_content)
-                    moonset.append(table_content[7:])
+                    table_content = table_content.replace('Moon SetMoonset', '')
+                    moonset.append(table_content)
                 i = i + 1
 
         # gochar = input('\n>>')
@@ -127,16 +143,15 @@ def get_tendaylists(sourcem, listnum):
     print('Maximum Temperature: ' + maxtemp[listnum])
     print('Minimum Temperature: ' + mintemp[listnum])
     print()
-    print('Description (Currently): ' + descriptioncurrent[listnum])
-    print('Description (Later): ' + descriptionlater[listnum])
+    print('Description (Morning): ' + descriptioncurrent[listnum])
+    print('Description (Night): ' + descriptionlater[listnum])
     print()
-    print('Humidity (Currently): ' + humiditycurrent[listnum])
-    print('UV Index (Currently): ' + uvindexcurrent[listnum])
+    print('Humidity (Morning): ' + humiditycurrent[listnum])
+    print('UV Index (Morning): ' + uvindexcurrent[listnum])
     print('Sunrise: ' + sunrise[listnum])
     print('Sunset: ' + sunset[listnum])
     print()
-    print('Humidity (Later): ' + humiditylater[listnum])
-    print('UV Index (Later): ' + uvindexlater[listnum])
+    print('UV Index (Night): ' + uvindexlater[listnum])
 
     src = requests.get(sourcem).text
 
@@ -147,17 +162,15 @@ def get_tendaylists(sourcem, listnum):
 
     time = time.replace(':', '.')
 
-    # print(time)
-
-    time = time.replace(':', '.')
-
     time = float(time)
 
     if (time >= 15.21):
+        print('Humidity (Night): ' + humiditylater[listnum-1])
         print('Moonrise: ' + moonrise[listnum-1])
         print('Moonset: ' + moonset[listnum-1])
 
     else:
+        print('Humidity (Night): ' + humiditylater[listnum])
         print('Moonrise: ' + moonrise[listnum])
         print('Moonset: ' + moonset[listnum])
     print()

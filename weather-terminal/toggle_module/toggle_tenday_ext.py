@@ -68,12 +68,13 @@ class weatherTenDay_toggle_dble:
 
             temperature_day = weather_Report.find('div', class_='DetailsSummary--temperature--3FMlw').text
 
-            weather_Description = weather_Report.find('div', class_='DetailsSummary--condition--mqdxh').text
+            weather_Description = weather_Report.find('span', class_='DetailsSummary--extendedData--aaFeV').text
 
             avg_precipindex = weather_Report.find('div', class_='DetailsSummary--precip--2ARnx').text
 
             wind_Details = weather_Report.find('div',
                                                class_='DetailsSummary--wind--Cv4BH DetailsSummary--extendedData--aaFeV').text
+            wind_Details = wind_Details.replace('Wind', '')
 
             dates.append(dateof_Report)
             temperatures.append(temperature_day)
