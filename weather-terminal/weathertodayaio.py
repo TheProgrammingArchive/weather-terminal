@@ -62,7 +62,7 @@ class weatherHoury:
         s=art.text2art(temperature_current+'  c','standard')
         for line in s.split("\n"):
             print(line.center(shutil.get_terminal_size().columns))
-        weatherdesc_current = self.weather_now.find('div', class_='DetailsSummary--condition--mqdxh').text
+        weatherdesc_current = self.weather_now.find('span', class_='DetailsSummary--extendedData--aaFeV').text
         print(weatherdesc_current.center(os.get_terminal_size().columns))
         time_now = 'Updated as of '+ self.weather_now.find('h2', class_='DetailsSummary--daypartName--1Mebr').text
         print(time_now.center(os.get_terminal_size().columns))
