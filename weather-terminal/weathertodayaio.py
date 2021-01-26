@@ -45,7 +45,7 @@ class weatherHoury:
             time.append(timeofreport)
             temp.append(temperature_Now)
             desc.append(weather_description)
-            precip.append('Precipitation: '+precip_index)
+            precip.append('Rain: '+precip_index)
             wind.append('Wind: ' + wind_speed)
             if(timeofreport >= '23:00'):
                 break
