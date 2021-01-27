@@ -4,7 +4,7 @@
   Get daily weather from your cli!
   
 ## Requirements:
-  For this application to work make sure you have python 3.7 or greater added to path. Make sure you have done so by opening cmd and typing 'pip --version' without quotes. If you get the version info then it means it has been added to your path successfully! If not please refer on how to add py to path. 
+  For this application to work make sure you have python 3.7 or greater added to path. Check if you have added py to path py typing pip --version in cmd or pip3 --version in terminal
   
   Pkgs to install: requests, lxml, bs4, art, tableprint. (For more info please view requirements.txt file)
   Command: pip install {pkgname}
