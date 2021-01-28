@@ -248,7 +248,7 @@ class Application:
 
                 elif command_arg.upper() == 'WEATHER -HDU':
                     hdu = weather_tble[2]
-                    hdu = hdu[8:]
+                    hdu = hdu.replace('Humidity', '')
                     print(f'Humidity: {hdu}')
 
                 elif command_arg.upper() == 'WEATHER -DEW':
