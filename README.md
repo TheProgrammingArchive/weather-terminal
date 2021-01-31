@@ -17,7 +17,7 @@
   __git clone https://github.com/TheProgrammingArchive/weather-terminal__, wait for it to get cloned!
   
   Now without exiting the directory, type "cd weather-terminal/weather-terminal" (_REMOVE QUOTES_), after doing so run: python application.py
-  This should start the app!
+  This should start the app! (python3 if using linux)
   
 ## Command list:
   weather now: Displays the current weather<br/>
