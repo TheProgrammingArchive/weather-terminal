@@ -385,7 +385,6 @@ class Application:
         print('Your default location for the app will be set now. Please wait for a second\n\n')
 
     def help_fs(self):
-        time.sleep(3)
         print('Your location details have been setup successfully!\n\n')
 
 
