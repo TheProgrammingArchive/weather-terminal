@@ -258,7 +258,7 @@ class Application:
 
                 elif command_arg.upper() == 'WEATHER -PAR':
                     prs = weather_tble[4]
-                    prs = prs.replace('PressureArrow Up', '').replace('Pressure', '').replace('Arrow Down', '')
+                    prs = prs.replace('PressureArrow Up', '').replace('Pressure', '')
                     print(f'Atm pressure: {prs}')
 
                 elif command_arg.upper() == 'WEATHER -UV':
