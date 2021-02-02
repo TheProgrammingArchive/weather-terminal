@@ -372,7 +372,7 @@ class Application:
                     if os.path.isfile('temploc.txt'):
                         os.remove('temploc.txt')
 
-                    time.sleep(1.5)
+                    time.sleep(0.5)
                     exit()
 
             else:
@@ -433,8 +433,6 @@ if __name__ == '__main__':
 
         nsApplication = Application()
         nsApplication.setup()
-
-        time.sleep(2)
 
         from linkgrabber import get_Link
 
