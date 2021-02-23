@@ -1,4 +1,4 @@
-# weather.com-scraper
+# weather-terminal
 
 ## About the project:
   Get daily weather from your cli!
